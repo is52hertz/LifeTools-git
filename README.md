@@ -1,6 +1,24 @@
 # LifeTools
-一小时人生「OneLifeOneHour」的衍生工具，名为生命工具组（LifeTools）
+> A derivative of OneLifeOneHour, called LifeTools.
+[English - ThisPaper]() [`zh_cn`]()
+# Summary
+## Tool - 1
+> A better `OneEditor`.
 
-# Tool - 1
-使OneOlifeEditor显示其他语言（更多文字）。
+### Features
+- Make `OneEditor` display other languages (more text).
 
+### Future
+- In the future you will be able to select the language of your country with the `python` program and have it executed automatically, but for now you need to do it yourself (this will be done in the next official release).  
+- New `Setting` page for editing `OneLife` settings (`.ini`).
+- Fixed `OneEditor` legacy and existing issues, [View Known Issues](https://github.com/is52hertz/LifeTools-git/issues).
+
+### Changelog and download resources
+**Latest version**: [``]()  
+**Update*:  
+```
+
+```
+*See more*:  
+- [Update Log]()  
+- [Download Resources]()  
