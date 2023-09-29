@@ -1,7 +1,6 @@
 #include "EditorScenePage.h"
 
 
-#include "minorGems/game/game.h"
 #include "minorGems/game/Font.h"
 #include "minorGems/game/drawUtils.h"
 
@@ -62,20 +61,20 @@ static SceneCell copyPeopleArea[ copyAreaSize ][ copyAreaSize ];
 EditorScenePage::EditorScenePage()
         : mPlayingTime( false ),
           mRecordingFrames( false ),
-          mAnimEditorButton( mainFont, 210, 260, translate("anim") ),
-          mSaveNewButton( smallFont, -300, 260, translate("save_new") ),
-          mReplaceButton( smallFont, -500, 260, translate("replace") ),
-          mDeleteButton( smallFont, 500, 260, translate("delete") ),
-          mSaveTestMapButton( smallFont, -300, 200, translate("export_test_map") ),
-          mLoadTestMapButton( smallFont, -500, 200, translate("import_test_map") ),
+          mAnimEditorButton( mainFont, 210, 260, "Anim - 动画" ),
+          mSaveNewButton( smallFont, -300, 260, "新保存" ),
+          mReplaceButton( smallFont, -500, 260, "覆盖" ),
+          mDeleteButton( smallFont, 500, 260, "删除" ),
+          mSaveTestMapButton( smallFont, -300, 200, "导出测试地图" ),
+          mLoadTestMapButton( smallFont, -500, 200, "导入测试地图" ),
           mNextSceneButton( smallFont, -420, 260, ">" ),
           mPrevSceneButton( smallFont, -580, 260, "<" ),
-          mClearSceneButton( smallFont, 350, 260, translate("clear") ),
+          mClearSceneButton( smallFont, 350, 260, "清除" ),
           mGroundPicker( &groundPickable, -410, 90 ),
           mObjectPicker( &objectPickable, 410, 90 ),
           mPersonAgeSlider( smallFont, -55, -220, 2,
                             100, 20,
-                            0, 100, translate("age") ),
+                            0, 100, "年龄" ),
           mCellAnimRadioButtons( smallFont, -200, -250, NUM_CELL_ANIM,
                                  cellAnimNames,
                                  true, 2 ),                                 
@@ -84,36 +83,36 @@ EditorScenePage::EditorScenePage()
                                    true, 2 ),                            
           mCellAnimFreezeSlider( smallFont, -450, -340, 2,
                                  300, 20,
-                                 -2, 2, translate("cell_time") ),
+                                 -2, 2, "Cell 时间" ),
           mPersonAnimFreezeSlider( smallFont, 50, -340, 2,
                                    300, 20,
-                                   -2, 2, translate("person_time") ),
+                                   -2, 2, "Person 时间" ),
           mCellSpriteVanishSlider( smallFont, -450, -310, 2,
                                    100, 20,
-                                   0, 1, translate("use") ),
+                                   0, 1, "使用" ),
           mCellSpriteVarSlider( smallFont, -250, -310, 2,
                                 100, 20,
-                                0, 1, translate("var") ),
+                                0, 1, "变量" ),
           mCellXOffsetSlider( smallFont, -450, -230, 2,
                               175, 20,
-                              -MAX_OFFSET, MAX_OFFSET, translate("x_offset") ),
+                              -MAX_OFFSET, MAX_OFFSET, "X 偏移" ),
           mCellYOffsetSlider( smallFont, -450, -260, 2,
                               175, 20,
-                              -MAX_OFFSET, MAX_OFFSET, translate("y_offset") ),
+                              -MAX_OFFSET, MAX_OFFSET, "Y 偏移" ),
           mPersonXOffsetSlider( smallFont, 200, -230, 2,
                               175, 20,
-                              -MAX_OFFSET, MAX_OFFSET, translate("x_offset") ),
+                              -MAX_OFFSET, MAX_OFFSET, "X 偏移" ),
           mPersonYOffsetSlider( smallFont, 200, -260, 2,
                               175, 20,
-                              -MAX_OFFSET, MAX_OFFSET, translate("y_offset") ),
+                              -MAX_OFFSET, MAX_OFFSET, "Y 偏移" ),
           mCellMoveDelayField( smallFont, -450, -290, 4,
-                               false, translate("move_delay_sec"),
+                               false, "移动延迟 秒",
                                "0123456789." ),
           mPersonMoveDelayField( smallFont, 200, -290, 4,
-                               false, translate("move_delay_sec"),
+                               false, "移动延迟 秒",
                                "0123456789." ),
           mPersonEmotField( smallFont, 360, -290, 7,
-                               true, translate("emot"),
+                               true, "表情",
                                "*/ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789," ),
           mCellDestSprite( loadSprite( "centerMark.tga" ) ),
           mPersonDestSprite( loadSprite( "internalPaperMark.tga" ) ),
@@ -132,7 +131,7 @@ EditorScenePage::EditorScenePage()
           mFrameCount( 0 ),
           mLittleDheld( false ),
           mBigDheld( false ),
-          mScenesFolder( NULL, translate("scenes") ),
+          mScenesFolder( NULL, "scenes - 场景" ),
           mNextFile( NULL ) {
     
     addComponent( &mAnimEditorButton );
@@ -292,25 +291,25 @@ EditorScenePage::EditorScenePage()
     checkNextPrevVisible();
 
 
-    addKeyClassDescription( &mKeyLegend, "Arrows", translate("change_selected_cell") );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", translate("bigger_cell_jumps") );
-    addKeyClassDescription( &mKeyLegend, "f/F", translate("flip_obj_or_person") );
-    addKeyClassDescription( &mKeyLegend, "c/C/A", translate("copy_obj_or_person_or_area") );
-    addKeyClassDescription( &mKeyLegend, "x/X", translate("cut_obj_or_person") );
-    addKeyClassDescription( &mKeyLegend, "v/V", translate("paste_or_fill") );
-    addKeyClassDescription( &mKeyLegend, "i/I", translate("insert_or_contained_or_held") );
-    addKeyClassDescription( &mKeyLegend, "Bkspc", translate("clearor_cell") );
-    addKeyClassDescription( &mKeyLegend, "Hold d/D", translate("set_obj_or_person_dest") );
-    addKeyDescription( &mKeyLegend, 'o', translate("set_map_origin") );
-    addKeyDescription( &mKeyLegend, 'p', translate("play_time") );
-    addKeyDescription( &mKeyLegend, 'r', translate("record_frames") );
-    addKeyDescription( &mKeyLegend, 'h', translate("hide_or_show_ui") );
-// Hide/show UI
-    addKeyClassDescription( &mKeyLegendG, "R-Click", translate("flood_fill") );
+    addKeyClassDescription( &mKeyLegend, "Arrows", "更改所选地块" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "更大的地块跳跃" );
+    addKeyClassDescription( &mKeyLegend, "f/F", "翻转 物体/人物" );
+    addKeyClassDescription( &mKeyLegend, "c/C/A", "复制 物体/人物/区域" );
+    addKeyClassDescription( &mKeyLegend, "x/X", "剪切 物体/人物" );
+    addKeyClassDescription( &mKeyLegend, "v/V", "粘贴/填充" );
+    addKeyClassDescription( &mKeyLegend, "i/I", "放入容器/手持" );
+    addKeyClassDescription( &mKeyLegend, "Bkspc", "清除地块" );
+    addKeyClassDescription( &mKeyLegend, "Hold d/D", "设置物体/人物的目的地" );
+    addKeyDescription( &mKeyLegend, 'o', "设置地块原点" );
+    addKeyDescription( &mKeyLegend, 'p', "播放时间" );
+    addKeyDescription( &mKeyLegend, 'r', "记录帧 - 记录每一帧并保存，可能会导致卡死" );
+    addKeyDescription( &mKeyLegend, 'h', "隐藏/显示 UI" );
 
-    addKeyClassDescription( &mKeyLegendC, "R-Click", translate("add_to_container") );
-    addKeyClassDescription( &mKeyLegendP, "R-Click", translate("add_clothing_or_held") );
-    addKeyClassDescription( &mKeyLegendF, "R-Click", translate("add_floor") );
+    addKeyClassDescription( &mKeyLegendG, "R-Click", "Flood fill" );
+
+    addKeyClassDescription( &mKeyLegendC, "R-Click", "添加至 容器中" );
+    addKeyClassDescription( &mKeyLegendP, "R-Click", "添加 服装/手持" );
+    addKeyClassDescription( &mKeyLegendF, "R-Click", "添加 地板" );
     }
 
 
@@ -567,7 +566,6 @@ void EditorScenePage::actionPerformed( GUIComponent *inTarget ) {
 
         if( !r ) {
             printf( "Failed to load scene from testMapScene.txt\n" );
-            // translate("")暂时不翻译
             }
         }
     else if( inTarget == &mReplaceButton ) {
@@ -1207,13 +1205,22 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
                 
                 if( cellOID > 0 && getObject( cellOID )->floorHugging ) {
                     
-                    if( x > 0 && mFloorCells[y][ x - 1 ].oID > 0 ) {
+                    // assume any floors with roadParentID defined
+                    // have special visual curves, etc, and don't make
+                    // them hug walls.  Single-tile floors and roads can
+                    // hug walls just fine.
+
+                    if( x > 0 && mFloorCells[y][ x - 1 ].oID > 0 &&
+                        getObject( mFloorCells[y][ x - 1 ].oID )->roadParentID 
+                        == -1 ) {
                         // floor to our left
                         passIDs[1] = mFloorCells[y][ x - 1 ].oID;
                         drawHuggingFloor = true;
                         }
                     
-                    if( x < mSceneW - 1 && mFloorCells[y][ x + 1 ].oID > 0 ) {
+                    if( x < mSceneW - 1 && mFloorCells[y][ x + 1 ].oID > 0 &&
+                        getObject( mFloorCells[y][ x + 1 ].oID )->roadParentID 
+                        == -1 ) {
                         // floor to our right
                         passIDs[2] = mFloorCells[y][ x + 1 ].oID;
                         drawHuggingFloor = true;
@@ -1336,7 +1343,9 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
         }
     
     
-
+    // loop twice to draw all behind-player sprite layers, scene-wide
+    // and then draw other thing after that
+    for( int f=0; f<2; f++ )
     for( int y=0; y<mSceneH; y++ ) {
         
         if( y > mCurY + 6 || 
@@ -1346,7 +1355,7 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
             }
 
 
-        // draw behind stuff first, b=0
+        // draw behind stuff first (whole objects, marked as behind), b=0
         // then people, b=1, with permanent objects in front
         // then non-permanent objects, b=2
         // then non-container walls (floor hugging, no slots), b=3
@@ -1671,8 +1680,12 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
                     
                     ObjectRecord *o = getObject( c->oID );
                     
-                    if( ( b == 0 && ! ( o->drawBehindPlayer || 
-                                        o->anySpritesBehindPlayer ) )
+                    if( f == 0 && ! o->anySpritesBehindPlayer ) {
+                        continue;
+                        }
+                    
+
+                    if( ( b == 0 && ! ( o->drawBehindPlayer ) )
                         ||
                         ( b != 0 && o->drawBehindPlayer ) ) {
                         continue;
@@ -1757,11 +1770,11 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
                     
 
                     char skippingSome = false;
-                    if( b == 0 && cellO->anySpritesBehindPlayer ) {
+                    if( f == 0 && cellO->anySpritesBehindPlayer ) {
                         prepareToSkipSprites( cellO, true );
                         skippingSome = true;
                         }
-                    else if( b != 0 && cellO->anySpritesBehindPlayer ) {
+                    else if( f == 1 && cellO->anySpritesBehindPlayer ) {
                         prepareToSkipSprites( cellO, false );
                         skippingSome = true;
                         }
@@ -2006,8 +2019,7 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
     if( c->oID > 0 ) {
         doublePair pos = { -400, -290 };
         
-        char *s = autoSprintf( translate("oid_sd"), c->oID,
-// oID=%d%s
+        char *s = autoSprintf( "oID=%d  %s", c->oID,
                                getObject( c->oID )->description );
         
 
@@ -2019,8 +2031,8 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
         
         doublePair pos = { 450, -230 };
         
-        char *s = autoSprintf( translate("oid_d"), p->oID );
-// oID=%d
+        char *s = autoSprintf( "oID=%d", p->oID );
+        
 
         drawOutlineString( s, pos, alignLeft );
 
@@ -2029,56 +2041,56 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
         if( p->heldID > 0 ) {
             pos.y -= 20;
             
-            s = autoSprintf( translate("heldid_d"), p->heldID );
-// heldID=%d
+            s = autoSprintf( "heldID=%d", p->heldID );
+
             drawOutlineString( s, pos, alignLeft );
             delete [] s;
             }
         if( p->clothing.hat != NULL ) {
             pos.y -= 20;
             
-            s = autoSprintf( translate("hat_d"), p->clothing.hat->id );
-// hat=%d
+            s = autoSprintf( "hat=%d", p->clothing.hat->id );
+            
             drawOutlineString( s, pos, alignLeft );
             delete [] s;
             }
         if( p->clothing.tunic != NULL ) {
             pos.y -= 20;
             
-            s = autoSprintf( translate("tunic_d"), p->clothing.tunic->id );
-// tunic=%d
+            s = autoSprintf( "tunic=%d", p->clothing.tunic->id );
+            
             drawOutlineString( s, pos, alignLeft );
             delete [] s;
             }
         if( p->clothing.bottom != NULL ) {
             pos.y -= 20;
             
-            s = autoSprintf( translate("bottom_d"), p->clothing.bottom->id );
-// botyom=%d
+            s = autoSprintf( "bottom=%d", p->clothing.bottom->id );
+            
             drawOutlineString( s, pos, alignLeft );
             delete [] s;
             }
         if( p->clothing.frontShoe != NULL ) {
             pos.y -= 20;
             
-            s = autoSprintf( translate("frontshoe_d"), p->clothing.frontShoe->id );
-// frontShoe=%d
+            s = autoSprintf( "frontShoe=%d", p->clothing.frontShoe->id );
+            
             drawOutlineString( s, pos, alignLeft );
             delete [] s;
             }
         if( p->clothing.backShoe != NULL ) {
             pos.y -= 20;
             
-            s = autoSprintf( translate("backshoe_d"), p->clothing.backShoe->id );
-// backShoe=%d
+            s = autoSprintf( "backShoe=%d", p->clothing.backShoe->id );
+            
             drawOutlineString( s, pos, alignLeft );
             delete [] s;
             }
         if( p->clothing.backpack != NULL ) {
             pos.y -= 20;
             
-            s = autoSprintf( translate("backpack_d"), p->clothing.backpack->id );
-// backpack=%d
+            s = autoSprintf( "backpack=%d", p->clothing.backpack->id );
+            
             drawOutlineString( s, pos, alignLeft );
             delete [] s;
             }
@@ -2092,8 +2104,8 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
         pos.y += 32;
         pos.x -= 40;
         
-        char *s = autoSprintf( translate("scene_d"), mSceneID );
-// Scene%d
+        char *s = autoSprintf( "Scene %d", mSceneID );
+        
         drawOutlineString( s, pos, alignLeft );
         delete [] s;
         }

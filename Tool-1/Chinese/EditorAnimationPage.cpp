@@ -39,31 +39,30 @@ extern double defaultAge;
 static float lastMouseX, lastMouseY;
 
 
-// add = + , 开头均大写.
-// _后大写，__后小写，均表示有空格。
+
 EditorAnimationPage::EditorAnimationPage()
         : mCenterMarkSprite( loadSprite( "centerMark.tga" ) ),
           mGroundSprite( loadWhiteSprite( "testGround.tga" ) ),
-          mObjectEditorButton( mainFont, 0, 260, translate("objects") ),
-          mSceneEditorButton( mainFont, -150, 260, translate("scene") ),
-          mSaveButton( smallFont, 0, 200, translate("save") ),
-          mDeleteButton( smallFont, 140, 200, translate("delete") ),
+          mObjectEditorButton( mainFont, 0, 260, "Objects" ),
+          mSceneEditorButton( mainFont, -150, 260, "Scene" ),
+          mSaveButton( smallFont, 0, 200, "Save" ),
+          mDeleteButton( smallFont, 140, 200, "Delete" ),
           mObjectPicker( &objectPickable, +410, 90 ),
           mSoundWidget( smallFont, -120, -200 ),
           mSoundRepeatPerSecSlider( smallFont, -120, -264, 2,
                                     100, 20,
-                                    0, 6, translate("loop_hz") ),
+                                    0, 6, "Loop Hz" ),
           mSoundRepeatPhaseSlider( smallFont, -120, -296, 2,
                                     100, 20,
-                                    0, 1, translate("loop_phase") ),
+                                    0, 1, "Loop Phase" ),
           mSoundAgeInField( smallFont, 
                             -180,  -328, 6,
                             false,
-                            translate("in"), "0123456789.", NULL ),
+                            "In", "0123456789.", NULL ),
           mSoundAgeOutField( smallFont, 
                              -50,  -328, 6,
                              false,
-                             translate("out"), "0123456789.", NULL ),
+                             "Out", "0123456789.", NULL ),
           mSoundAgePunchInButton( smallFont, -130, -328, "S" ),
           mSoundAgePunchOutButton( smallFont, 0, -328, "S" ),
           mSoundFootstepButton( "footstepOffButton.tga",
@@ -71,12 +70,12 @@ EditorAnimationPage::EditorAnimationPage()
                                 35, -328 ),
           mPersonAgeSlider( smallFont, 100, -212, 2,
                             100, 20,
-                            0, 100, translate("age") ),
+                            0, 100, "Age" ),
           mPlayAgeButton( smallFont, 264, -212, "P" ),
           mPlayingAge( false ),
           mTestSpeedSlider( smallFont, 100, -170, 2,
                             100, 20,
-                            0, 1, translate("test_speed") ),
+                            0, 1, "Test Speed" ),
           
           mPrevExtraButton( smallFont, 250, -65, "<" ), 
           mNextExtraButton( smallFont, 310, -65, ">" ), 
@@ -103,43 +102,43 @@ EditorAnimationPage::EditorAnimationPage()
           mCurrentSound( 0 ),
           mCurrentSpriteOrSlot( 0 ),
           mSettingRotCenter( false ),
-          mPickSlotDemoButton( smallFont, 280, 90, translate("fill_slots") ),
+          mPickSlotDemoButton( smallFont, 280, 90, "Fill Slots" ),
           mPickingSlotDemo( false ),
-          mClearSlotDemoButton( smallFont, 280, -100, translate("clear_slots") ),
-          mPickClothingButton( smallFont, 280, 100, translate("add_clothes") ),
+          mClearSlotDemoButton( smallFont, 280, -100, "Clear Slots" ),
+          mPickClothingButton( smallFont, 280, 100, "+ Clothes" ),
           mPickingClothing( false ),
-          mClearClothingButton( smallFont, 280, 140, translate("x_clothes") ),
-          mPickHeldButton( smallFont, 280, -100, translate("add_held") ),
+          mClearClothingButton( smallFont, 280, 140, "X Clothes" ),
+          mPickHeldButton( smallFont, 280, -100, "+ Held" ),
           mPickingHeld( false ),
           mHeldID( -1 ),
-          mClearHeldButton( smallFont, 280, -140, translate("x_held") ),
-          mPickSceneryButton( smallFont, 280, 180, translate("add_scenery") ),
+          mClearHeldButton( smallFont, 280, -140, "X Held" ),
+          mPickSceneryButton( smallFont, 280, 180, "+ Scenery" ),
           mPickingScenery( false ),
           mSceneryID( -1 ),
-          mClearSceneryButton( smallFont, 280, 220, translate("x_scenery") ),
-          mCopyButton( smallFont, -390, 230, translate("copy") ),
-          mCopyChainButton( smallFont, -390, 270, translate("copy_child_tree") ),
+          mClearSceneryButton( smallFont, 280, 220, "X Scenery" ),
+          mCopyButton( smallFont, -390, 230, "Copy" ),
+          mCopyChainButton( smallFont, -390, 270, "Copy Child Tree" ),
           mCopyChainRandButton( smallFont, -390, 310, 
-                                translate("copy_child_tree_rand_phase") ),
-          mCopyWalkButton( smallFont, -260, 270, translate("copy_walk") ),
-          mCopyAllButton( smallFont, -470, 230, translate("copy_all") ),
-          mCopyUpButton( smallFont, -500, 270, translate("copy_up") ),
-          mPasteButton( smallFont, -330, 230, translate("paste") ),
-          mClearButton( smallFont, -270, 230, translate("clear") ),
-          mNextSpriteOrSlotButton( smallFont, 280, -270, translate("next_layer") ),
-          mPrevSpriteOrSlotButton( smallFont, 100, -270, translate("prev_layer") ),
-          mChildButton( smallFont, 380, -330, translate("child") ),
-          mParentButton( smallFont, 380, -270, translate("parent") ),
+                                "Copy Child Tree Rand Phase" ),
+          mCopyWalkButton( smallFont, -260, 270, "Copy Walk" ),
+          mCopyAllButton( smallFont, -470, 230, "Copy All" ),
+          mCopyUpButton( smallFont, -500, 270, "Copy Up" ),
+          mPasteButton( smallFont, -330, 230, "Paste" ),
+          mClearButton( smallFont, -270, 230, "Clear" ),
+          mNextSpriteOrSlotButton( smallFont, 280, -270, "Next Layer" ),
+          mPrevSpriteOrSlotButton( smallFont, 100, -270, "Prev Layer" ),
+          mChildButton( smallFont, 380, -330, "Child" ),
+          mParentButton( smallFont, 380, -270, "Parent" ),
           mNextSoundButton( smallFont, -30, -160, ">" ),
           mPrevSoundButton( smallFont, -210, -160, "<" ),
-          mCopySoundAnimButton( smallFont, -85, -160, translate("copy") ),
-          mCopyAllSoundAnimButton( smallFont, -85, -160, translate("copy_all") ),
-          mPasteSoundAnimButton( smallFont, -155, -160, translate("paste") ),
-          mFullSoundCopyButton( smallFont, -300, -328, translate("full_sound_copy") ),
-          mFullSoundPasteButton( smallFont, 130, -328, translate("full_sound_paste") ),
+          mCopySoundAnimButton( smallFont, -85, -160, "Copy" ),
+          mCopyAllSoundAnimButton( smallFont, -85, -160, "Copy All" ),
+          mPasteSoundAnimButton( smallFont, -155, -160, "Paste" ),
+          mFullSoundCopyButton( smallFont, -300, -328, "Full Sound Copy" ),
+          mFullSoundPasteButton( smallFont, 130, -328, "Full Sound Paste" ),
           mSpeedMultField( smallFont, -500, -328, 4, false,
-                           translate("speed__x"), "0123456789." ),
-          mSpeedMultApplyButton( smallFont, -446, -328, translate("apply") ) {
+                           "Speed x", "0123456789." ),
+          mSpeedMultApplyButton( smallFont, -446, -328, "Apply" ) {
     
     
     for( int i=0; i<=extraB; i++ ) {
@@ -375,12 +374,12 @@ EditorAnimationPage::EditorAnimationPage()
         mCheckboxes[i]->addActionListener( this );
         boxY -= 20;
         }
-    mCheckboxNames[0] = translate("ground");
-    mCheckboxNames[1] = translate("jeld");
-    mCheckboxNames[2] = translate("moving");
-    mCheckboxNames[3] = translate("eating");
-    mCheckboxNames[4] = translate("doing");
-    mCheckboxNames[5] = translate("extra");
+    mCheckboxNames[0] = "Ground";
+    mCheckboxNames[1] = "Held";
+    mCheckboxNames[2] = "Moving";
+    mCheckboxNames[3] = "Eating";
+    mCheckboxNames[4] = "Doing";
+    mCheckboxNames[5] = "Extra";
 
     mCheckboxAnimTypes[0] = ground;
     mCheckboxAnimTypes[1] = held;
@@ -402,41 +401,41 @@ EditorAnimationPage::EditorAnimationPage()
     
     mSliders[0] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, translate("x_osc") );
+                                   0, 8, "X Osc" );
 
     mXOffsetSlider = new ValueSlider( smallFont, x - 182, 
                                       mSliders[0]->getPosition().y, 
                                       2,
                                       50, 20,
-                                      -128, 128, translate("off") );
+                                      -128, 128, "Off" );
 
     mSliders[1] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 256, translate("x_amp") );
+                                   0, 256, "X Amp" );
     mSliders[2] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("x_phase") );
+                                   0, 1, "X Phase" );
 
     mSliders[3] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, translate("y_osc") );
+                                   0, 8, "Y Osc" );
 
     mYOffsetSlider = new ValueSlider( smallFont, x - 182, 
                                       mSliders[3]->getPosition().y, 
                                       2,
                                       50, 20,
-                                      -128, 128, translate("off") );
+                                      -128, 128, "Off" );
 
     mSliders[4] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 256, translate("y_amp") );
+                                   0, 256, "Y Amp" );
     mSliders[5] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("y_phase") );
+                                   0, 1, "Y Phase" );
     
     mSliders[6] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 12, translate("rot") );
+                                   0, 12, "Rot" );
     
     mReverseRotationCheckbox.setPosition( x - 65, boxY );
 
@@ -445,49 +444,49 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[7] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("rot_phase") );
+                                   0, 1, "Rot Phase" );
 
     mSliders[8] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, translate("rock_osc") );
+                                   0, 8, "Rock Osc" );
     mSliders[9] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("rock_amp") );
+                                   0, 1, "Rock Amp" );
     mSliders[10] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 1, translate("rock_phase") );
+                                    0, 1, "Rock Phase" );
 
 
     mSliders[11] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, translate("fade_osc") );
+                                   0, 8, "Fade Osc" );
     mSliders[12] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("fade_hard") );
+                                   0, 1, "Fade Hard" );
     mSliders[13] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("fade_min") );
+                                   0, 1, "Fade Min" );
     mSliders[14] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("fade_max") );
+                                   0, 1, "Fade Max" );
     mSliders[15] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 1, translate("fade_phase") );
+                                   0, 1, "Fade Phase" );
 
     
     mSliders[16] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, translate("duration_sec") );
+                                    0, 100, "Duration Sec" );
     mSliders[16]->forceDecimalDigits( 2 );
     
     mSliders[17] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, translate("pause_sec") );
+                                    0, 100, "Pause Sec" );
     mSliders[17]->forceDecimalDigits( 2 );
 
     mSliders[18] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, translate("start_pause_sec") );
+                                    0, 100, "Start Pause Sec" );
     mSliders[18]->forceDecimalDigits( 2 );
     
 
@@ -531,14 +530,12 @@ EditorAnimationPage::EditorAnimationPage()
     mOtherShoe = &( mClothingSet.frontShoe );
 
     addKeyClassDescription( &mKeyLegend, "R-Click/arrows", 
-                            translate("move_layer_rot_anchor") );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", translate("bigger_jumps") );
-    addKeyDescription( &mKeyLegend, 'f', translate("flip_horizontally") );
-    addKeyDescription( &mKeyLegend, 'h', translate("hide_or_show_ui") );
-    // Hide/show UI
+                            "Move layer rot anchor" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "Bigger jumps" );
+    addKeyDescription( &mKeyLegend, 'f', "Flip horizontally" );
+    addKeyDescription( &mKeyLegend, 'h', "Hide/show UI" );
     
-    addKeyClassDescription( &mKeyLegendB, "R-Click", translate("copy_animations") );
-    // R-Click
+    addKeyClassDescription( &mKeyLegendB, "R-Click", "Copy animations" );
     }
 
 

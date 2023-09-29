@@ -78,10 +78,10 @@ char childUnpickable( int inID ) {
 EditorCategoryPage::EditorCategoryPage()
         : mObjectParentPicker( &objectPickableParent, -410, 90 ),
           mObjectChildPicker( &objectPickableChild, +410, 90 ),
-          mTransEditorButton( mainFont, 0, 260, translate("transitions") ),
+          mTransEditorButton( mainFont, 0, 260, "Transitions" ),
           mIsPatternCheckbox( 220, 0, 2 ),
           mIsProbSetCheckbox( 220, -20, 2 ),
-          mMakeUniformButton( smallFont, 220, -80, translate("make_uniform") ) {
+          mMakeUniformButton( smallFont, 220, -80, "Make Uniform" ) {
     
     mObjectChildPicker.addFilter( &childUnpickable );
     mObjectParentPicker.addFilter( &parentUnpickable );
@@ -116,14 +116,14 @@ EditorCategoryPage::EditorCategoryPage()
     mSelectionIndex = 0;
     mCurrentWeightDigit = 0;
 
-    addKeyClassDescription( &mKeyLegend, "Up/Down", translate("change__selection") );
-    addKeyClassDescription( &mKeyLegend, "Pg up/Down", translate("change_order") );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", translate("bigger_jumps") );
-    addKeyClassDescription( &mKeyLegend, "Bkspce", translate("remv_item") );
-    addKeyDescription( &mKeyLegend, 'c', translate("copy_csv_to_clipboard") );
-// Copy SCV to clipboard
-    addKeyDescription( &mKeyLegendPattern, 'd', translate("duplicate_item_in_place") );
-    addKeyDescription( &mKeyLegendPattern, 'D', translate("duplicate_item_to_bottom") );
+    addKeyClassDescription( &mKeyLegend, "Up/Down", "Change selection" );
+    addKeyClassDescription( &mKeyLegend, "Pg Up/Down", "Change order" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "Bigger jumps" );
+    addKeyClassDescription( &mKeyLegend, "Bkspce", "Remv item" );
+    addKeyDescription( &mKeyLegend, 'c', "Copy CSV to clipboard" );
+
+    addKeyDescription( &mKeyLegendPattern, 'd', "Duplicate item in place" );
+    addKeyDescription( &mKeyLegendPattern, 'D', "Duplicate item to bottom" );
     }
 
 
@@ -345,14 +345,14 @@ static void drawObjectList( char inCategories,
             
             textPos.x -= 20;
             
-            smallFont->drawString( translate("pat"), 
+            smallFont->drawString( "Pat", 
                                    textPos, alignRight );
             }
         else if( inCategories && getCategory( objID )->isProbabilitySet ) {
             
             textPos.x -= 20;
             
-            smallFont->drawString( translate("prob"), 
+            smallFont->drawString( "Prob", 
                                    textPos, alignRight );
             }
         else if( inPattern ) {
@@ -442,17 +442,18 @@ void EditorCategoryPage::draw( doublePair inViewCenter,
             if( mIsPatternCheckbox.isVisible() ) {
                 pos = mIsPatternCheckbox.getPosition();
                 pos.x -= 12;
-                smallFont->drawString( translate("pattern"), pos, alignRight );
+                smallFont->drawString( "Pattern", pos, alignRight );
                 }
             if( mIsProbSetCheckbox.isVisible() ) {
                 pos = mIsProbSetCheckbox.getPosition();
                 pos.x -= 12;
-                smallFont->drawString( translate("prob_set"), pos, alignRight );
+                smallFont->drawString( "Prob Set", pos, alignRight );
                 
                 if( mIsProbSetCheckbox.getToggled() ) {
                     pos = mIsProbSetCheckbox.getPosition();
                     pos.y -= 20;
-                    smallFont->drawString( "0-9 = enter prob digits" , pos , alignCenter );
+                    smallFont->drawString( "0-9 = enter prob digits", pos,
+                                           alignCenter );
                     }
                 }
 

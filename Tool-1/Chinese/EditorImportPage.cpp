@@ -40,8 +40,8 @@ static int checkboxSep = 12;
 
 
 EditorImportPage::EditorImportPage()
-        : mImportButton( smallFont, +170, 280, translate("sprite_import") ),
-          mImportLinesButton( smallFont, +170, 240, translate("lines_import") ),
+        : mImportButton( smallFont, +170, 280, "Sprite Import" ),
+          mImportLinesButton( smallFont, +170, 240, "Lines Import" ),
           mNextSpriteImportButton( smallFont, +240, 280, ">" ),
           mPrevSpriteImportButton( smallFont, +100, 280, "<" ),
           mNextLinesImportButton( smallFont, +240, 240, ">" ),
@@ -50,7 +50,7 @@ EditorImportPage::EditorImportPage()
           mCurrentLinesImportCacheIndex( 0 ),
           mImportPathOverride( NULL ),
           mXTopLinesButton( smallFont, +280, 240, "X" ),
-          mImportOverlayButton( smallFont, +370, 260, translate("overlay_import") ),
+          mImportOverlayButton( smallFont, +370, 260, "Overlay Import" ),
           mSelect( false ),
           mImportedSheet( NULL ),
           mImportedSheetSprite( NULL ),
@@ -63,39 +63,39 @@ EditorImportPage::EditorImportPage()
           mSelectionMultiplicative( false ),
           mShadowSlider( smallFont, 90, 200, 2,
                          100, 20,
-                         0, 1, translate("shadow") ),
+                         0, 1, "Shadow" ),
           mSolidCheckbox( 305, 200, 2 ),
           mBlackLineThresholdSlider( smallFont, 90, 170, 2,
                                  100, 20,
-                                 0, 1, translate("black_threshold") ),
+                                 0, 1, "Black Threshold" ),
           mBlackLineThresholdDefaultButton( smallFont, 305, 170, "D" ),
           mPaperThresholdSlider( smallFont, 90, 140, 2,
                                  100, 20,
-                                 0, 1, translate("paper_threshold") ),
+                                 0, 1, "Paper Threshold" ),
           mPaperThresholdDefaultButton( smallFont, 305, 140, "D" ),
           mSaturationSlider( smallFont, 90, 110, 2,
                              100, 20,
-                             -1, 2, translate("saturation") ),
+                             -1, 2, "Saturation" ),
           mSaturationDefaultButton( smallFont, 305, 110, "D" ),
           mSpriteTagField( mainFont, 
                            0,  -260, 6,
                            false,
-                           translate("tag"), NULL, " " ),
-          mSaveSpriteButton( mainFont, 210, -260, translate("save") ),
-          mSaveOverlayButton( smallFont, 310, -260, translate("save_overlay") ),
-          mInvertButton( smallFont, 210, -320, translate("invert") ),
+                           "Tag", NULL, " " ),
+          mSaveSpriteButton( mainFont, 210, -260, "Save" ),
+          mSaveOverlayButton( smallFont, 310, -260, "Save Overlay" ),
+          mInvertButton( smallFont, 210, -320, "Invert" ),
           mInvertColors( false ),
           mSpritePicker( &spritePickable, -410, 90 ),
           mOverlayPicker( &overlayPickable, 410, 90 ),
-          mSpriteTrimEditorButton( mainFont, -460, 260, translate("trim") ),
-          mObjectEditorButton( mainFont, 0, 260, translate("objects") ),
+          mSpriteTrimEditorButton( mainFont, -460, 260, "Trim" ),
+          mObjectEditorButton( mainFont, 0, 260, "Objects" ),
           mCenterMarkSprite( loadSprite( "centerMark.tga" ) ),
           mInternalPaperMarkSprite( loadSprite( "internalPaperMark.tga" ) ),
           mCenterSet( true ),
-          mClearRotButton( smallFont, -400, -280, translate("0_rot") ),
-          mClearScaleButton( smallFont, -400, -240, translate("1_scale") ),
-          mFlipOverlayButton( smallFont, -330, -280, translate("flip_h") ),
-          mClearOverlayButton( smallFont, -330, -240, translate("x_ovly") ),
+          mClearRotButton( smallFont, -400, -280, "0 Rot" ),
+          mClearScaleButton( smallFont, -400, -240, "1 Scale" ),
+          mFlipOverlayButton( smallFont, -330, -280, "Flip H" ),
+          mClearOverlayButton( smallFont, -330, -240, "X Ovly" ),
           mShowTagMessage( false ),
           mAKeyDown( false ) {
 
@@ -225,24 +225,24 @@ EditorImportPage::EditorImportPage()
         
 
 
-    addKeyClassDescription( &mSheetKeyLegend, "r-mouse", translate("mv_sheet") );
-    addKeyDescription( &mSheetKeyLegend, 'c', translate("mv_sprite_center") );
-    addKeyDescription( &mSheetKeyLegend, 'x', translate("copy_pixel_color") );
-    addKeyClassDescription( &mSheetKeyLegend, "w-click", translate("white_out") );
-    addKeyDescription( &mSheetKeyLegend, 'W', translate("clear_white_out") );
-    addKeyClassDescription( &mSheetKeyLegend, "ijkl", translate("mv_sheet") );
-    addKeyClassDescription( &mSheetKeyLegend, "Ctr/Shft", translate("bigger_jumps") );
+    addKeyClassDescription( &mSheetKeyLegend, "r-mouse", "Mv sheet" );
+    addKeyDescription( &mSheetKeyLegend, 'c', "Mv sprite center" );
+    addKeyDescription( &mSheetKeyLegend, 'x', "Copy pixel color" );
+    addKeyClassDescription( &mSheetKeyLegend, "w-click", "white out" );
+    addKeyDescription( &mSheetKeyLegend, 'W', "clear white out" );
+    addKeyClassDescription( &mSheetKeyLegend, "ijkl", "Mv sheet" );
+    addKeyClassDescription( &mSheetKeyLegend, "Ctr/Shft", "Bigger jumps" );
 
-    addKeyClassDescription( &mSheetKeyLegendB, "p-click", translate("internal_paper") );
-    addKeyDescription( &mSheetKeyLegendB, 'P', translate("clear_internal_paper") );
+    addKeyClassDescription( &mSheetKeyLegendB, "p-click", "internal paper" );
+    addKeyDescription( &mSheetKeyLegendB, 'P', "clear internal paper" );
     
 
-    addKeyClassDescription( &mLinesKeyLegend, "arrows", translate("mv_lines") );
+    addKeyClassDescription( &mLinesKeyLegend, "arrows", "Mv lines" );
     
 
-    addKeyDescription( &mOverlayKeyLegend, 't', translate("mv_overlay") );
-    addKeyDescription( &mOverlayKeyLegend, 's', translate("scale_overlay") );
-    addKeyDescription( &mOverlayKeyLegend, 'r', translate("rot_overlay") );
+    addKeyDescription( &mOverlayKeyLegend, 't', "Mv overlay" );
+    addKeyDescription( &mOverlayKeyLegend, 's', "Scale overlay" );
+    addKeyDescription( &mOverlayKeyLegend, 'r', "Rot overlay" );
     
     }
 
@@ -375,8 +375,8 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
                 }
             else {
                 importPath = 
-                    SettingsManager::getStringSetting( translate("editor_import_path") );
-// EditorImportPath     
+                    SettingsManager::getStringSetting( "editorImportPath" );
+                
                 if( inTarget == &mImportButton ) {
                     mNextSpriteImportButton.setVisible( false );
                     mCurrentSpriteImportCacheIndex = 0;
@@ -397,8 +397,7 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
         else if( inTarget == &mImportOverlayButton ) {
             // used first PNG file in overlayImport dir
             
-            File importDir( NULL, translate("overlay_import") );
-// overlayImport
+            File importDir( NULL, "overlayImport" );
             if( importDir.exists() && importDir.isDirectory() ) {
                 int numPNGFiles;
                 File **pngFiles = importDir.getChildFiles( &numPNGFiles );
@@ -461,12 +460,10 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
 
                             // cache it
                         
-                            const char *cacheName = translate("sprite_import_cache");
-// spriteImportCache
+                            const char *cacheName = "spriteImportCache";
                     
                             if( inTarget == &mImportLinesButton ) {
-                                cacheName = translate("line_import_cache");
-// lineImportCache
+                                cacheName = "lineImportCache";
                                 }
                         
                             File cacheDir( NULL, cacheName );
@@ -674,11 +671,10 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
             }
         else {
             if( inTarget == &mImportButton ) {
-                setStatus( translate("import_path_not_set_in_settings_folder"), true );
+                setStatus( "Import path not set in settings folder", true );
                 }
             else {
-                setStatus( translate("No_png_file_found_in_overlayImport_folder"), true );
-// No PNG file found in overlayImport folder
+                setStatus( "No PNG file found in overlayImport folder", true );
                 }
             }
         
@@ -712,14 +708,13 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
         increment *= scale;
         
 
-        const char *cacheName = "sprite_import_cache";
-// spriteImportCache
+        const char *cacheName = "spriteImportCache";
         int *currentIndex = &mCurrentSpriteImportCacheIndex;
 
         if( inTarget == &mPrevLinesImportButton ||
             inTarget == &mNextLinesImportButton ) {
-            cacheName = "line_import_cache";
-// lineImportCache
+            cacheName = "lineImportCache";
+            
             currentIndex = &mCurrentLinesImportCacheIndex;
             }
 
@@ -1136,8 +1131,7 @@ void EditorImportPage::draw( doublePair inViewCenter,
     if( mOverlayScale.getLastElementDirect() != 1.0 ) {
         doublePair pos = { 400, -240 };
         char *string = 
-            autoSprintf( translate("scale___3f"),
-            // Scale: %.3f 
+            autoSprintf( "Scale: %.3f", 
                          mOverlayScale.getLastElementDirect() );
     
         setDrawColor( .5, .5, .5, 1 );
@@ -1148,8 +1142,7 @@ void EditorImportPage::draw( doublePair inViewCenter,
     if( mOverlayRotation.getLastElementDirect() != 0 ) {
         doublePair pos = { 400, -260 };
         char *string = 
-            autoSprintf( translate("rot___3f"),
-            // Rot: %.3f 
+            autoSprintf( "Rot: %.3f", 
                          mOverlayRotation.getLastElementDirect() );
     
         setDrawColor( .5, .5, .5, 1 );
@@ -1195,14 +1188,14 @@ void EditorImportPage::draw( doublePair inViewCenter,
         
         pos.y += 40;
         
-        smallFont->drawString( translate("tag_required"), pos, alignCenter );
+        smallFont->drawString( "Tag Required", pos, alignCenter );
         }
 
 
     setDrawColor( 1, 1, 1, 1 );
     doublePair pos = mSolidCheckbox.getPosition();
     pos.x -= checkboxSep;
-    smallFont->drawString( translate("solid"), pos, alignRight );
+    smallFont->drawString( "Solid", pos, alignRight );
 
 
 
@@ -2077,8 +2070,7 @@ void EditorImportPage::processSelection() {
                     r[i] = 1;
                     g[i] = 1;
                     b[i] = 1;
-                    printf( translate("Found_noise_point_at_"), x, y );
-// Found noise point at %d, %d\n
+                    printf( "Found noise point at %d, %d\n", x, y );
                     }
                 }
             }

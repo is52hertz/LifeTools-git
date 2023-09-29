@@ -15,7 +15,7 @@ int versionNumber = 60;
 
 
 #include "minorGems/graphics/Color.h"
-#include "minorGems/game/game.h"
+
 
 
 // for testing
@@ -186,14 +186,14 @@ char isNonIntegerScalingAllowed() {
 
 
 const char *getWindowTitle() {
-    return translate( "winedittitle" );
+    return "编辑器 - OneLife";
     }
-// Windows窗口显示标题，原EDITOR - OneLife
+
 
 const char *getAppName() {
-    return translate( "macedittitle" );
+    return "编辑OneLife";
     }
-// MacOs窗口显示标题，原EditOneLife
+
 
 int getAppVersion() {
     return versionNumber;
@@ -202,9 +202,10 @@ int getAppVersion() {
 
 const char *getLinuxAppName() {
     // no dir-name conflict here because we're using all caps for app name
-    return translate( "linuxedittitle" );
+    return "编辑OneLifeApp";
     }
-//这里没有目录名称冲突，因为我们使用大写字母作为应用程序名称，原EditOneLifeApp
+
+
 
 const char *getFontTGAFileName() {
     return "font_32_32.tga";
@@ -259,32 +260,28 @@ static int stepsBetweenDeleteRepeat;
 
 
 
-#define SETTINGS_HASH_SALT translate( "another_loss")
+#define SETTINGS_HASH_SALT "another_loss"
 
 
 static const char *customDataFormatWriteString = 
-    "version%d_mouseSpeed%f_musicOff%d_musicLoudness%f"
-    "_webRetrySeconds%d";
+    "版本%d_鼠标速度%f_音乐关闭%d_音乐响度%f"
+    "_网络重试秒数%d";
 
 static const char *customDataFormatReadString = 
-    "version%d_mouseSpeed%f_musicOff%d_musicLoudness%f"
-    "_webRetrySeconds%d";
+    "版本%d_鼠标速度%f_音乐关闭%d_音乐响度%f"
+    "_网络重试秒数%d";
 
 
 char *getCustomRecordedGameData() {    
     
     float mouseSpeedSetting = 
-        SettingsManager::getFloatSetting( translate( "mouse_speed" ), 1.0f );
-        // mouseSpeed
+        SettingsManager::getFloatSetting( "鼠标速度", 1.0f );
     int musicOffSetting = 
-        SettingsManager::getIntSetting( translate( "music_off" ), 0 );
-        // musicOff
+        SettingsManager::getIntSetting( "音乐关闭", 0 );
     float musicLoudnessSetting = 
-        SettingsManager::getFloatSetting( translate( "musi_cloudness" ), 1.0f );
-        // musicCloudness
+        SettingsManager::getFloatSetting( "音乐响度", 1.0f );
     int webRetrySecondsSetting = 
-        SettingsManager::getIntSetting( translate( "web_retry_seconds" ), 10 );
-        // webRetrySeconds
+        SettingsManager::getIntSetting( "网络重试秒数", 10 );
     
 
     char * result = autoSprintf(
@@ -462,10 +459,8 @@ void initFrameDrawer( int inWidth, int inHeight, int inTargetFrameRate,
         if( readVersionNumber != versionNumber ) {
             AppLog::printOutNextMessage();
             AppLog::warningF( 
-                translate( "message_c" ),
-                // WARNING:  version number in playback file is %d 
-                translate( "message_d" ),
-                // but game version is %d...
+                "警告：dataVersionNumber.txt中的版本号为 %d "
+                "但游戏版本是 %d...",
                 readVersionNumber, versionNumber );
             }
         }
@@ -484,14 +479,14 @@ void initFrameDrawer( int inWidth, int inHeight, int inTargetFrameRate,
     webRetrySeconds = webRetrySecondsSetting;
 
     
-    serverAddress = SettingsManager::getStringSetting( translate( "server_address" ) );
-// serverAddress
+    serverAddress = SettingsManager::getStringSetting( "服务器地址" );
+
     if( serverAddress == NULL ) {
         serverAddress = stringDuplicate( "127.0.0.1" );
         }
 
-    serverPort = SettingsManager::getIntSetting( translate( "server_port" ), 5077 );
-// severPort
+    serverPort = SettingsManager::getIntSetting( "服务器端口", 5077 );
+
 
 
     setSoundLoudness( musicLoudness );
@@ -511,7 +506,7 @@ void initFrameDrawer( int inWidth, int inHeight, int inTargetFrameRate,
     scenePage = new EditorScenePage;
     loadingPage = new LoadingPage;
     
-    loadingPage->setCurrentPhase( translate( "overlays" ) );
+    loadingPage->setCurrentPhase( "OVERLAYS" );
     loadingPage->setCurrentProgress( 0 );
 
     currentGamePage = loadingPage;
@@ -892,8 +887,7 @@ void drawFrame( char inUpdate ) {
                 = getAsyncFileData( loadingFileHandle, &length );
             
 
-            printf( translate( "message_e" ), 
-            // Done with file read (%d steps), %.2f sec\n
+            printf( "完成文件读取（%d steps), %.2f 秒前\n", 
                     loadingFileStepCount,
                     Time::getCurrentTime() - loadingStartTime );
             
@@ -1078,7 +1072,7 @@ void drawFrame( char inUpdate ) {
 
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                translate( "sounds_rebuild" ) );
+                                translate( "soundsRebuild" ) );
                             }
                         else {
                             loadingPage->setCurrentPhase(
@@ -1121,11 +1115,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                translate( "spritesRebuild") );
-// SPRITES##(REBUILDING CACHE)                                
+                                "SPRITE - 图元##(重建缓存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( translate( "sprites") );
+                            loadingPage->setCurrentPhase( "SPRITE - 图元" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1149,8 +1142,7 @@ void drawFrame( char inUpdate ) {
                     
                     if( progress == 1.0 ) {
                         initSpriteBankFinish();
-                        printf( translate( "message_f"),
-// Finished loading Sprite bank in %f sec\n                        
+                        printf( "Finished loading Sprite bank in %f sec\n",
                                 Time::getCurrentTime() - 
                                 loadingPhaseStartTime );
                         
@@ -1164,11 +1156,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                translate( "animationRebuild") );
-// ANIMATION##(REBUILDING CACHE)
+                                "ANIMATION - 动画##(重建缓存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( translate( "animation") );
+                            loadingPage->setCurrentPhase( "ANIMATION - 动画" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1193,8 +1184,7 @@ void drawFrame( char inUpdate ) {
                     if( progress == 1.0 ) {
                         initAnimationBankFinish();
                         
-                        printf( translate( "message_g"),
-// Finished loading animation bank in %f sec\n
+                        printf( "Finished loading animation bank in %f sec\n",
                                 Time::getCurrentTime() - 
                                 loadingPhaseStartTime );
 
@@ -1208,10 +1198,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                translate( "objectRebuild") );
+                                "OBJECT - 物品##(重建缓存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( translate( "object") );
+                            loadingPage->setCurrentPhase( "OBJECT - 物品" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1235,8 +1225,7 @@ void drawFrame( char inUpdate ) {
                     
                     if( progress == 1.0 ) {
                         initObjectBankFinish();
-                        printf( translate( "message_h"),
-// Finished loading object bank in %f sec\n
+                        printf( "Finished loading object bank in %f sec\n",
                                 Time::getCurrentTime() - 
                                 loadingPhaseStartTime );
                         
@@ -1249,10 +1238,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                translate( "categoriesRebuild") );
+                                "CATEGORIES - 类别##(重建缓存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( translate( "categories") );
+                            loadingPage->setCurrentPhase( "CATEGORIES - 类别" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1276,8 +1265,7 @@ void drawFrame( char inUpdate ) {
                     
                     if( progress == 1.0 ) {
                         initCategoryBankFinish();
-                        printf( translate( "message_i"),
-// Finished loading category bank in %f sec\n
+                        printf( "Finished loading category bank in %f sec\n",
                                 Time::getCurrentTime() - 
                                 loadingPhaseStartTime );
                         
@@ -1294,10 +1282,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                translate( "transitionsRebuild") );
+                                "TRANSITIONS - 转换##(重建缓存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( translate( "transitions") );
+                            loadingPage->setCurrentPhase( "TRANSITIONS - 转换" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1323,7 +1311,7 @@ void drawFrame( char inUpdate ) {
                         initTransBankFinish();
                         
                         loadingPage->setCurrentPhase( 
-                            translate( "ground_textures" ) );
+                            translate( "groundTextures" ) );
 
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1358,7 +1346,6 @@ void drawFrame( char inUpdate ) {
                     currentGamePage->base_makeActive( true );
                 }
             }
-// translate( " 以下不确定。（已经还原）
         if( currentGamePage == importPage ) {
             if( importPage->checkSignal( "objectEditor" ) ) {
                 currentGamePage = objectPage;
@@ -1637,8 +1624,7 @@ void keyDown( unsigned char inASCII ) {
         case 'M': {
 #ifdef USE_MALLINFO
             struct mallinfo meminfo = mallinfo();
-            printf( translate( "message_j"),
-// Mem alloc: %d\n
+            printf( "Mem alloc: %d\n",
                     meminfo.uordblks / 1024 );
 #endif
             }
@@ -1778,6 +1764,7 @@ void getSoundSamples( Uint8 *inBuffer, int inLengthToFillInBytes ) {
 // implement a NULL version of this function to make emotion system happy
 void addBaseObjectToLiveObjectSet( int ) {
     }
+
 
 
 

@@ -1,6 +1,8 @@
 # LifeTools
-> A derivative of OneLifeOneHour, called LifeTools.
-[English - ThisPaper]() [`zh_cn`]()
+> A derivative of OneLifeOneHour, called LifeTools.  
+ [`English` - ThisPaper](https://github.com/is52hertz/LifeTools-git#lifetools) 
+ [`zh_cn`](https://github.com/is52hertz/LifeTools-git/blob/main/MarkDown/README-zh_cn.md#lifetools)
+
 # Summary
 ## Tool - 1
 > A better `OneEditor`.
@@ -15,7 +17,7 @@
 
 ### Changelog and download resources
 **Latest version**: [``]()  
-**Update*:  
+*Update*:  
 ```
 
 ```

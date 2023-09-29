@@ -78,7 +78,7 @@ EditorTransitionPage::EditorTransitionPage()
         : mAutoDecayTimeField( smallFont, 
                                0,  -170, 6,
                                false,
-                               translate("autodecay_seconds"), "-0123456789", NULL ),
+                               "AutoDecay Seconds", "-0123456789", NULL ),
           mLastUseActorCheckbox( -330, 75, 2 ),
           mLastUseTargetCheckbox( 130, 75, 2 ),
           mReverseUseActorCheckbox( -330, -75, 2 ),
@@ -90,27 +90,26 @@ EditorTransitionPage::EditorTransitionPage()
           mDesiredMoveDistField( smallFont,
                                  240, 40 - NUM_MOVE_BUTTONS * 20 - 30, 4,
                                  false,
-                                 translate("dist"), "0123456789", NULL ),
+                                 "Dist", "0123456789", NULL ),
           mActorMinUseFractionField( smallFont, 
                                      -290,  115, 4,
                                      false,
-                                     translate("min_use_fraction"), "0123456789.", NULL ),
+                                     "Min Use Fraction", "0123456789.", NULL ),
           mTargetMinUseFractionField( smallFont, 
                                       90,  115, 4,
                                       false,
-                                      translate("min_use_fraction"), "0123456789.", NULL ),
-          mSaveTransitionButton( mainFont, -320, 0, translate("save") ),
+                                      "Min Use Fraction", "0123456789.", NULL ),
+          mSaveTransitionButton( mainFont, -320, 0, "Save" ),
           mObjectPicker( &objectPickable, +410, 90 ),
           mObjectPickerAlt( &objectPickableAlt, -540, 0 ),
-          mObjectEditorButton( mainFont, 410, 260, translate("objects") ),
-          mCategoryEditorButton( mainFont, -410, 260, translate("categories") ),
-          mProducedByNext( smallFont, 180, 260, translate("next") ),
-          mProducedByPrev( smallFont, -180, 260, translate("prev") ),
-          mProducesNext( smallFont, 180, -260, translate("next") ),
-          mProducesPrev( smallFont, -180, -260, translate("prev") ),
-          mDelButton( smallFont, +150, 0, translate("delete") ),
-          mDelConfirmButton( smallFont, +150, 40, translate("delete_") ),
-// Delete?
+          mObjectEditorButton( mainFont, 410, 260, "Objects" ),
+          mCategoryEditorButton( mainFont, -410, 260, "Categories" ),
+          mProducedByNext( smallFont, 180, 260, "Next" ),
+          mProducedByPrev( smallFont, -180, 260, "Prev" ),
+          mProducesNext( smallFont, 180, -260, "Next" ),
+          mProducesPrev( smallFont, -180, -260, "Prev" ),
+          mDelButton( smallFont, +150, 0, "Delete" ),
+          mDelConfirmButton( smallFont, +150, 40, "Delete?" ),
           mSwapActorButton( "swapButton.tga", -200, 0 ),
           mSwapTargetButton( "swapButton.tga", 0, 0 ),
           mSwapTopButton( "swapButtonH.tga", -100, 120 ),
@@ -118,7 +117,7 @@ EditorTransitionPage::EditorTransitionPage()
           mCommentField( smallFont,
                          -50,  -196, 36,
                          false,
-                         translate("comment"), NULL, NULL ) {
+                         "Comment", NULL, NULL ) {
 
     mSwapActorButton.setPixelSize( 2 );
     mSwapTargetButton.setPixelSize( 2 );
@@ -1135,11 +1134,11 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
             
             if( mProducedByType[i] == 1 ) {
                 setDrawColor( 1, 1, 0.5, 1 );
-                noteString = translate( "from_category");
+                noteString = "From Category:";
                 }
             else if( mProducedByType[i] == 2 ) {
                 setDrawColor( 1, 0.75, 0.75, 1 );
-                noteString = translate( "from_pattern");
+                noteString = "From Pattern:";
                 }
             else {
                 setDrawColor( 1, 1, 1, 1 );
@@ -1186,11 +1185,11 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
 
             if( mProducesType[i] == 1 ) {
                 setDrawColor( 1, 1, 0.5, 1 );
-                noteString = translate( "from_category_");
+                noteString = "From Category ^";
                 }
             else if( mProducesType[i] == 2 ) {
                 setDrawColor( 1, 0.75, 0.75, 1 );
-                noteString = translate( "from_pattern_");
+                noteString = "From Pattern ^";
                 }
             else {
                 setDrawColor( 1, 1, 1, 1 );
@@ -1234,7 +1233,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( translate( "generic_on_person_transition"), 
+        smallFont->drawString( "Generic on-person Transition", 
                                pos, alignCenter );
         }
     else if( mCurrentTransition.target != 0 &&
@@ -1248,7 +1247,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( translate( "default_transition"), 
+        smallFont->drawString( "Default Transition", 
                                pos, alignCenter );
         }
     else if( mCurrentTransition.target == 0 &&
@@ -1263,7 +1262,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( translate( "eating_transition"), 
+        smallFont->drawString( "Eating Transition", 
                                pos, alignCenter );
         
         }
@@ -1279,7 +1278,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( translate( "generic_use_transition"), 
+        smallFont->drawString( "Generic Use Transition", 
                                pos, alignCenter );
         
         }
@@ -1294,7 +1293,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( translate( "use_on_bare_ground"), 
+        smallFont->drawString( "Use on Bare Ground", 
                                pos, alignCenter );
         
         }
@@ -1304,36 +1303,36 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
     if( mLastUseActorCheckbox.isVisible() ) {
         doublePair pos = mLastUseActorCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( translate( "last_use"), pos, alignRight );
+        smallFont->drawString( "Last Use", pos, alignRight );
         }
     if( mLastUseTargetCheckbox.isVisible() ) {
         doublePair pos = mLastUseTargetCheckbox.getPosition();
         pos.x += checkboxSep;
-        smallFont->drawString( translate( "last_use"), pos, alignLeft );
+        smallFont->drawString( "Last Use", pos, alignLeft );
         }
 
     if( mReverseUseActorCheckbox.isVisible() ) {
         doublePair pos = mReverseUseActorCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( translate( "reverse_use"), pos, alignRight );
+        smallFont->drawString( "Reverse Use", pos, alignRight );
         }
 
     if( mReverseUseTargetCheckbox.isVisible() ) {
         doublePair pos = mReverseUseTargetCheckbox.getPosition();
         pos.x += checkboxSep;
-        smallFont->drawString( translate( "reverse_use"), pos, alignLeft );
+        smallFont->drawString( "Reverse Use", pos, alignLeft );
         }
 
     if( mNoUseActorCheckbox.isVisible() ) {
         doublePair pos = mNoUseActorCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( translate( "no_use"), pos, alignRight );
+        smallFont->drawString( "No Use", pos, alignRight );
         }
 
     if( mNoUseTargetCheckbox.isVisible() ) {
         doublePair pos = mNoUseTargetCheckbox.getPosition();
         pos.x += checkboxSep;
-        smallFont->drawString( translate( "no_use"), pos, alignLeft );
+        smallFont->drawString( "No Use", pos, alignLeft );
         }
     
 
@@ -1414,4 +1413,3 @@ void EditorTransitionPage::specialKeyDown( int inKeyCode ) {
     
             
     }
-

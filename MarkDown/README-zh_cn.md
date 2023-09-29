@@ -1,6 +1,7 @@
 # LifeTools
-> 一小时人生「OneLifeOneHour」的衍生工具，名为生命工具组（LifeTools）
-[`English`]()  [`zh_cn` - 此页面]()
+> 一小时人生「OneLifeOneHour」的衍生工具，名为生命工具组（LifeTools）  
+ [`English`](https://github.com/is52hertz/LifeTools-git#lifetools) 
+ [`zh_cn` - 此页面](https://github.com/is52hertz/LifeTools-git/blob/main/MarkDown/README-zh_cn.md#lifetools)
 # 概要
 ## Tool - 1
 > 更好的`OneEditor`。

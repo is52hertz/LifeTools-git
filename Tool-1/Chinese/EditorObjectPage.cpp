@@ -61,18 +61,17 @@ EditorObjectPage::EditorObjectPage()
         : mDescriptionField( smallFont, 
                              -50,  -260, 18,
                              false,
-                             translate("description"), NULL, NULL ),
-          mBiomeField( smallFont, -55, -220, 8, false, translate("biomes"),
+                             "Description", NULL, NULL ),
+          mBiomeField( smallFont, -55, -220, 8, false, "Biomes",
                        "0123456789,", NULL ),
           mMapChanceField( smallFont, 
                            -250,  64, 6,
                            false,
-                           translate("map_p"), "0123456789.", NULL ),
-                           //MapP
+                           "MapP", "0123456789.", NULL ),
           mHeatValueField( smallFont, 
                            -250,  32, 4,
                            false,
-                           translate("heat"), "-0123456789", NULL ),
+                           "Heat", "-0123456789", NULL ),
           mRValueField( smallFont, 
                         -250,  0, 4,
                         false,
@@ -80,56 +79,55 @@ EditorObjectPage::EditorObjectPage()
           mFoodValueField( smallFont, 
                            -250,  -32, 4,
                            false,
-                           translate("food"), "0123456789", NULL ),
+                           "Food", "0123456789", NULL ),
           mSpeedMultField( smallFont, 
                            -250,  -64, 4,
                            false,
-                           translate("speed"), "0123456789.", NULL ),
+                           "Speed", "0123456789.", NULL ),
           mContainSizeField( smallFont, 
                              250,  -120, 4,
                              false,
-                             translate("contain_size"), "0123456789.", NULL ),
+                             "Contain Size", "0123456789.", NULL ),
           mSlotSizeField( smallFont, 
                           -280,  -230, 4,
                           false,
-                          translate("slot_size"), "0123456789.", NULL ),
+                          "Slot Size", "0123456789.", NULL ),
           mSlotTimeStretchField( smallFont, 
                                  -155,  -110, 4,
                                  false,
-                                 translate("tm_strch"), "0123456789.", NULL ),
+                                 "Tm Strch", "0123456789.", NULL ),
           mSlotsLockedCheckbox( -260, -200, 2 ),
           mNoFlipCheckbox( 460, -260, 2 ),
           mSideAccessCheckbox( 460, -240, 2 ),
           mDeadlyDistanceField( smallFont, 
                                 150,  -220, 4,
                                 false,
-                                translate("deadly_distance"), "0123456789", NULL ),
+                                "Deadly Distance", "0123456789", NULL ),
           mUseDistanceField( smallFont, 
                              150,  -190, 4,
                              false,
-                             translate("use_dist"), "0123456789", NULL ),
+                             "Use Dist", "0123456789", NULL ),
           mMinPickupAgeField( smallFont, 
                               300,  -220, 4,
                               false,
-                              translate("pickup_age"), "0123456789.", NULL ),
+                              "Pickup Age", "0123456789.", NULL ),
           mRaceField( smallFont, 
                       150, -120, 2,
                       true,
-                      "race", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", NULL ),
-          mSaveObjectButton( smallFont, 210, -260, translate("save_new") ),
-          mReplaceObjectButton( smallFont, 310, -260, translate("replace") ),
-          mClearObjectButton( smallFont, -260, 200, translate("blank") ),
-          mClearRotButton( smallFont, -260, 120, translate("0_rot") ),
+                      "Race", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", NULL ),
+          mSaveObjectButton( smallFont, 210, -260, "Save New" ),
+          mReplaceObjectButton( smallFont, 310, -260, "Replace" ),
+          mClearObjectButton( smallFont, -260, 200, "Blank" ),
+          mClearRotButton( smallFont, -260, 120, "0 Rot" ),
           mRot45ForwardButton( smallFont, -215, 120, ">" ),
           mRot45BackwardButton( smallFont, -305, 120, "<" ),
-          mFlipHButton( smallFont, -260, 160, translate("h_flip") ),
-          mBakeButton( smallFont, -260, 160, translate("__bake") ),
-          // < Bake
-          mImportEditorButton( mainFont, -210, 260, translate("sprites") ),
-          mTransEditorButton( mainFont, 210, 260, translate("trans") ),
-          mAnimEditorButton( mainFont, 330, 260, translate("anim") ),
-          mMoreSlotsButton( smallFont, -280, -110, translate("more") ),
-          mLessSlotsButton( smallFont, -280, -166, translate("less") ),
+          mFlipHButton( smallFont, -260, 160, "H Flip" ),
+          mBakeButton( smallFont, -260, 160, "< Bake" ),
+          mImportEditorButton( mainFont, -210, 260, "Sprites" ),
+          mTransEditorButton( mainFont, 210, 260, "Trans" ),
+          mAnimEditorButton( mainFont, 330, 260, "Anim" ),
+          mMoreSlotsButton( smallFont, -280, -110, "More" ),
+          mLessSlotsButton( smallFont, -280, -166, "Less" ),
           mAgingLayerCheckbox( 290, -22, 2 ),
           mHeadLayerCheckbox( 290, 104, 2 ),
           mBodyLayerCheckbox( 290, 84, 2 ),
@@ -145,11 +143,11 @@ EditorObjectPage::EditorObjectPage()
           mAgeInField( smallFont, 
                        260,  -52, 6,
                        false,
-                       translate("on"), "0123456789.", NULL ),
+                       "In", "0123456789.", NULL ),
           mAgeOutField( smallFont, 
                         260,  -90, 6,
                         false,
-                        translate("out"), "0123456789.", NULL ),
+                        "Out", "0123456789.", NULL ),
           mAgePunchInButton( smallFont, 310, -52, "S" ),
           mAgePunchOutButton( smallFont, 310, -90, "S" ),
           mPersonNoSpawnCheckbox( 290, -150, 2 ),
@@ -166,16 +164,15 @@ EditorObjectPage::EditorObjectPage()
           mLeftBlockingRadiusField( smallFont, 
                                     290,  -30, 2,
                                     false,
-                                    translate("l_radius"), "0123456789", NULL ),
+                                    "L Radius", "0123456789", NULL ),
           mRightBlockingRadiusField( smallFont, 
                                      290,  -60, 2,
                                      false,
-                                     translate("r_radius"), "0123456789", NULL ),
+                                     "R Radius", "0123456789", NULL ),
           mNumUsesField( smallFont, 
                          258,  110, 2,
                          false,
-                         translate("__use"), "0123456789", NULL ),
-                         // # Use
+                         "# Use", "0123456789", NULL ),
           mUseChanceField( smallFont, 
                            300,  110, 4,
                            false,
@@ -184,25 +181,24 @@ EditorObjectPage::EditorObjectPage()
           mUseAppearCheckbox( 272, 86, 2 ),
           mSimUseCheckbox( 248, 64, 2 ),
           mSimUseSlider( smallFont, 220, 64, 2, 50, 20, 0, 10, "" ),
-          mDemoClothesButton( smallFont, 300, 200, translate("pos") ),
-          mEndClothesDemoButton( smallFont, 300, 160, translate("x_pos") ),
-          // XPos
-          mDemoSlotsButton( smallFont, -200, -166, translate("demo_slots") ),
-          mClearSlotsDemoButton( smallFont, -200, -212, translate("end_demo") ),
-          mSetHeldPosButton( smallFont, 250, -32, translate("held_pos") ),
-          mEndSetHeldPosButton( smallFont, 240, -76, translate("end_held") ),
+          mDemoClothesButton( smallFont, 300, 200, "Pos" ),
+          mEndClothesDemoButton( smallFont, 300, 160, "XPos" ),
+          mDemoSlotsButton( smallFont, -200, -166, "Demo Slots" ),
+          mClearSlotsDemoButton( smallFont, -200, -212, "End Demo" ),
+          mSetHeldPosButton( smallFont, 250, -32, "Held Pos" ),
+          mEndSetHeldPosButton( smallFont, 240, -76, "End Held" ),
           mNextHeldDemoButton( smallFont, 312, -76, ">" ),
           mPrevHeldDemoButton( smallFont, 290, -76, "<" ),
           mCopyHeldPosButton( smallFont, 290, -106, "c" ),
           mPasteHeldPosButton( smallFont, 312, -106, "p" ),
-          mDemoVertRotButton( smallFont, 90, -150, translate("vert") ),
+          mDemoVertRotButton( smallFont, 90, -150, "Vert" ),
           mResetVertRotButton( smallFont, 130, -150, "D" ),
           mDemoVertRot( false ),
           mSpritePicker( &spritePickable, -410, 90 ),
           mObjectPicker( &objectPickable, +410, 90 ),
           mPersonAgeSlider( smallFont, -55, -220, 2,
                             100, 20,
-                            0, 100, translate("age") ),
+                            0, 100, "Age" ),
           mHueSlider( smallFont, -90, -125, 2,
                       75, 20,
                       0, 1, "H" ),
@@ -706,24 +702,24 @@ EditorObjectPage::EditorObjectPage()
     mBehindPlayerCheckbox.setPosition( -118, 197 );
     mAdditiveBlendCheckbox.setPosition( -118, 300 );
 
-    addKeyClassDescription( &mKeyLegend, "n/m", translate("switch_layers") );
-    addKeyClassDescription( &mKeyLegend, "arrows", translate("move_llayer") );
-    addKeyClassDescription( &mKeyLegend, "Pg Up/Down", translate("layer_order") );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", translate("bigger_jumps") );
-    addKeyDescription( &mKeyLegend, 'F', translate("flip_whole_object") );
-    addKeyDescription( &mKeyLegend, 'r', translate("rotate_layer") );
-    addKeyDescription( &mKeyLegend, 'p', translate("ignore_parent_links") );
-    addKeyClassDescription( &mKeyLegend, "c/v", translate("copy_or_paste_color") );
-    addKeyClassDescription( &mKeyLegend, "C/V", translate("copy_or_paste_delta_from_saved") );
+    addKeyClassDescription( &mKeyLegend, "n/m", "Switch layers" );
+    addKeyClassDescription( &mKeyLegend, "arrows", "Move layer" );
+    addKeyClassDescription( &mKeyLegend, "Pg Up/Down", "Layer order" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "Bigger jumps" );
+    addKeyDescription( &mKeyLegend, 'F', "Flip whole object" );
+    addKeyDescription( &mKeyLegend, 'r', "Rotate layer" );
+    addKeyDescription( &mKeyLegend, 'p', "Ignore parent links" );
+    addKeyClassDescription( &mKeyLegend, "c/v", "Copy/paste color" );
+    addKeyClassDescription( &mKeyLegend, "C/V", "Copy/paste delta from saved" );
 
 
-    addKeyClassDescription( &mKeyLegendB, "R-Click", translate("layer_parent") );
-    addKeyClassDescription( &mKeyLegendB, "Bkspce", translate("remv_layer") );
-    addKeyDescription( &mKeyLegendB, 'd', translate("dupe_layer") );
+    addKeyClassDescription( &mKeyLegendB, "R-Click", "Layer parent" );
+    addKeyClassDescription( &mKeyLegendB, "Bkspce", "Remv layer" );
+    addKeyDescription( &mKeyLegendB, 'd', "Dupe Layer" );
 
-    addKeyClassDescription( &mKeyLegendC, "R-Click", translate("replace_layer") );
+    addKeyClassDescription( &mKeyLegendC, "R-Click", "Replace layer" );
 
-    addKeyClassDescription( &mKeyLegendD, "R-Click", translate("insert_object") );
+    addKeyClassDescription( &mKeyLegendD, "R-Click", "Insert object" );
     
 
     mColorClipboard.r = 1;

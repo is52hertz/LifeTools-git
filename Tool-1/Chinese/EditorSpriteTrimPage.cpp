@@ -4,7 +4,6 @@
 #include "whiteSprites.h"
 
 
-#include "minorGems/game/game.h"
 #include "minorGems/game/Font.h"
 #include "minorGems/game/drawUtils.h"
 
@@ -31,12 +30,12 @@ static double lastMouseY = 0;
 
 
 EditorSpriteTrimPage::EditorSpriteTrimPage()
-        : mImportEditorButton( mainFont, -310, 260, translate("sprites") ),
-          mSaveButton( mainFont, 400, 64, translate("save") ),
-          mClearRectButton( mainFont, 400, -65, translate("x_rect") ),
-          mFreehandSplitButton( mainFont, 400, 192, translate("freehand_split") ),
+        : mImportEditorButton( mainFont, -310, 260, "Sprites" ),
+          mSaveButton( mainFont, 400, 64, "Save" ),
+          mClearRectButton( mainFont, 400, -65, "X Rect" ),
+          mFreehandSplitButton( mainFont, 400, 192, "Freehand Split" ),
           mBrushSizeSlider( smallFont, 400, 292,
-                            2, 100, 20, 1, 50, translate("brush_size") ),
+                            2, 100, 20, 1, 50, "Brush Size" ),
           mFreehandSplitMode( false ),
           mSpritePicker( &spritePickable, -410, 90 ),
           mPickedSprite( -1 ),
@@ -206,7 +205,7 @@ void EditorSpriteTrimPage::actionPerformed( GUIComponent *inTarget ) {
             }
         }
     else if( inTarget == &mSaveButton && mFreehandSplitMode ) {
-        File spritesDir( NULL, translate("sprites") );
+        File spritesDir( NULL, "sprites" );
 
         char *fileName = autoSprintf( "%d.tga", mPickedSprite );
         
@@ -684,13 +683,13 @@ void EditorSpriteTrimPage::actionPerformed( GUIComponent *inTarget ) {
     else if( inTarget == &mFreehandSplitButton ) {
         if( mFreehandSplitMode ) {
             mFreehandSplitMode = false;
-            mFreehandSplitButton.setLabelText( translate("Freehand_Split") );
+            mFreehandSplitButton.setLabelText( "Freehand Split" );
             mBrushSizeSlider.setVisible( false );
             mSaveButton.setVisible( false );
             }
         else {
             mFreehandSplitMode = true;
-            mFreehandSplitButton.setLabelText( translate("Rect_Split") );
+            mFreehandSplitButton.setLabelText( "Rect Split" );
             mBrushSizeSlider.setVisible( true );
             
             mRects.deleteAll();
