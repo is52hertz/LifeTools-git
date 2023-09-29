@@ -83,10 +83,10 @@ EditorScenePage::EditorScenePage()
                                    true, 2 ),                            
           mCellAnimFreezeSlider( smallFont, -450, -340, 2,
                                  300, 20,
-                                 -2, 2, "Cell 时间" ),
+                                 -2, 2, "动画播放倍率" ),
           mPersonAnimFreezeSlider( smallFont, 50, -340, 2,
                                    300, 20,
-                                   -2, 2, "Person 时间" ),
+                                   -2, 2, "人物动画播放倍率" ),
           mCellSpriteVanishSlider( smallFont, -450, -310, 2,
                                    100, 20,
                                    0, 1, "使用" ),
@@ -305,9 +305,9 @@ EditorScenePage::EditorScenePage()
     addKeyDescription( &mKeyLegend, 'r', "记录帧 - 记录每一帧并保存，可能会导致卡死" );
     addKeyDescription( &mKeyLegend, 'h', "隐藏/显示 UI" );
 
-    addKeyClassDescription( &mKeyLegendG, "R-Click", "Flood fill" );
+    addKeyClassDescription( &mKeyLegendG, "R-Click", "填充地块" );
 
-    addKeyClassDescription( &mKeyLegendC, "R-Click", "添加至 容器中" );
+    addKeyClassDescription( &mKeyLegendC, "R-Click", "添加 容器" );
     addKeyClassDescription( &mKeyLegendP, "R-Click", "添加 服装/手持" );
     addKeyClassDescription( &mKeyLegendF, "R-Click", "添加 地板" );
     }
