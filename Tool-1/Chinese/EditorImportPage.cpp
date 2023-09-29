@@ -226,23 +226,23 @@ EditorImportPage::EditorImportPage()
 
 
     addKeyClassDescription( &mSheetKeyLegend, "r-mouse", "移动图层" );
-    addKeyDescription( &mSheetKeyLegend, 'c', "Mv sprite center" );
-    addKeyDescription( &mSheetKeyLegend, 'x', "Copy pixel color" );
-    addKeyClassDescription( &mSheetKeyLegend, "w-click", "white out" );
-    addKeyDescription( &mSheetKeyLegend, 'W', "clear white out" );
-    addKeyClassDescription( &mSheetKeyLegend, "ijkl", "Mv sheet" );
-    addKeyClassDescription( &mSheetKeyLegend, "Ctr/Shft", "Bigger jumps" );
+    addKeyDescription( &mSheetKeyLegend, 'c', "移动图元中心" );
+    addKeyDescription( &mSheetKeyLegend, 'x', "复制像素颜色" );
+    addKeyClassDescription( &mSheetKeyLegend, "w-click", "白色填充" );
+    addKeyDescription( &mSheetKeyLegend, 'W', "清除白色" );
+    addKeyClassDescription( &mSheetKeyLegend, "ijkl", "移动图层" );
+    addKeyClassDescription( &mSheetKeyLegend, "Ctr/Shft", "更大的跳跃" );
 
-    addKeyClassDescription( &mSheetKeyLegendB, "p-click", "internal paper" );
-    addKeyDescription( &mSheetKeyLegendB, 'P', "clear internal paper" );
+    addKeyClassDescription( &mSheetKeyLegendB, "p-click", "内部文件" );
+    addKeyDescription( &mSheetKeyLegendB, 'P', "清除内部文件" );
     
 
-    addKeyClassDescription( &mLinesKeyLegend, "arrows", "Mv lines" );
+    addKeyClassDescription( &mLinesKeyLegend, "arrows", "移动线层" );
     
 
-    addKeyDescription( &mOverlayKeyLegend, 't', "Mv overlay" );
-    addKeyDescription( &mOverlayKeyLegend, 's', "Scale overlay" );
-    addKeyDescription( &mOverlayKeyLegend, 'r', "Rot overlay" );
+    addKeyDescription( &mOverlayKeyLegend, 't', "移动叠加" );
+    addKeyDescription( &mOverlayKeyLegend, 's', "比例叠加" );
+    addKeyDescription( &mOverlayKeyLegend, 'r', "旋转叠加" );
     
     }
 
@@ -654,7 +654,7 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
             if( !imported ) {
                 char *fullFileName = importFile->getFullFileName();
                 
-                char *message = autoSprintf( "Failed to import PNG from:##"
+                char *message = autoSprintf( "从以下地址导入 PNG 失败：###"
                                              "%s", fullFileName );
                 
                 delete [] fullFileName;
@@ -671,10 +671,10 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
             }
         else {
             if( inTarget == &mImportButton ) {
-                setStatus( "Import path not set in settings folder", true );
+                setStatus( "未在设置文件夹中设置导入路径", true );
                 }
             else {
-                setStatus( "No PNG file found in overlayImport folder", true );
+                setStatus( "OverlayImport 文件夹中未发现 PNG 文件", true );
                 }
             }
         
