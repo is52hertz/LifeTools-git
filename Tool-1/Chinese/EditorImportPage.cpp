@@ -40,8 +40,8 @@ static int checkboxSep = 12;
 
 
 EditorImportPage::EditorImportPage()
-        : mImportButton( smallFont, +170, 280, "Sprite Import" ),
-          mImportLinesButton( smallFont, +170, 240, "Lines Import" ),
+        : mImportButton( smallFont, +170, 280, "图元导入" ),
+          mImportLinesButton( smallFont, +170, 240, "线层导入" ),
           mNextSpriteImportButton( smallFont, +240, 280, ">" ),
           mPrevSpriteImportButton( smallFont, +100, 280, "<" ),
           mNextLinesImportButton( smallFont, +240, 240, ">" ),
@@ -50,7 +50,7 @@ EditorImportPage::EditorImportPage()
           mCurrentLinesImportCacheIndex( 0 ),
           mImportPathOverride( NULL ),
           mXTopLinesButton( smallFont, +280, 240, "X" ),
-          mImportOverlayButton( smallFont, +370, 260, "Overlay Import" ),
+          mImportOverlayButton( smallFont, +370, 260, "叠加导入" ),
           mSelect( false ),
           mImportedSheet( NULL ),
           mImportedSheetSprite( NULL ),
@@ -63,38 +63,38 @@ EditorImportPage::EditorImportPage()
           mSelectionMultiplicative( false ),
           mShadowSlider( smallFont, 90, 200, 2,
                          100, 20,
-                         0, 1, "Shadow" ),
+                         0, 1, "阴影" ),
           mSolidCheckbox( 305, 200, 2 ),
           mBlackLineThresholdSlider( smallFont, 90, 170, 2,
                                  100, 20,
-                                 0, 1, "Black Threshold" ),
+                                 0, 1, "黑色阈值" ),
           mBlackLineThresholdDefaultButton( smallFont, 305, 170, "D" ),
           mPaperThresholdSlider( smallFont, 90, 140, 2,
                                  100, 20,
-                                 0, 1, "Paper Threshold" ),
+                                 0, 1, "纸张边界阈值" ),
           mPaperThresholdDefaultButton( smallFont, 305, 140, "D" ),
           mSaturationSlider( smallFont, 90, 110, 2,
                              100, 20,
-                             -1, 2, "Saturation" ),
+                             -1, 2, "饱和度" ),
           mSaturationDefaultButton( smallFont, 305, 110, "D" ),
           mSpriteTagField( mainFont, 
                            0,  -260, 6,
                            false,
-                           "Tag", NULL, " " ),
-          mSaveSpriteButton( mainFont, 210, -260, "Save" ),
-          mSaveOverlayButton( smallFont, 310, -260, "Save Overlay" ),
-          mInvertButton( smallFont, 210, -320, "Invert" ),
+                           "标签", NULL, " " ),
+          mSaveSpriteButton( mainFont, 210, -260, "保存" ),
+          mSaveOverlayButton( smallFont, 310, -260, "保存叠加" ),
+          mInvertButton( smallFont, 210, -320, "反转" ),
           mInvertColors( false ),
           mSpritePicker( &spritePickable, -410, 90 ),
           mOverlayPicker( &overlayPickable, 410, 90 ),
-          mSpriteTrimEditorButton( mainFont, -460, 260, "Trim" ),
-          mObjectEditorButton( mainFont, 0, 260, "Objects" ),
+          mSpriteTrimEditorButton( mainFont, -460, 260, "Trim - 裁剪" ),
+          mObjectEditorButton( mainFont, 0, 260, "Objects - 物品" ),
           mCenterMarkSprite( loadSprite( "centerMark.tga" ) ),
           mInternalPaperMarkSprite( loadSprite( "internalPaperMark.tga" ) ),
           mCenterSet( true ),
-          mClearRotButton( smallFont, -400, -280, "0 Rot" ),
+          mClearRotButton( smallFont, -400, -280, "0 旋转" ),
           mClearScaleButton( smallFont, -400, -240, "1 Scale" ),
-          mFlipOverlayButton( smallFont, -330, -280, "Flip H" ),
+          mFlipOverlayButton( smallFont, -330, -280, "翻转 H" ),
           mClearOverlayButton( smallFont, -330, -240, "X Ovly" ),
           mShowTagMessage( false ),
           mAKeyDown( false ) {
@@ -225,7 +225,7 @@ EditorImportPage::EditorImportPage()
         
 
 
-    addKeyClassDescription( &mSheetKeyLegend, "r-mouse", "Mv sheet" );
+    addKeyClassDescription( &mSheetKeyLegend, "r-mouse", "移动图层" );
     addKeyDescription( &mSheetKeyLegend, 'c', "Mv sprite center" );
     addKeyDescription( &mSheetKeyLegend, 'x', "Copy pixel color" );
     addKeyClassDescription( &mSheetKeyLegend, "w-click", "white out" );

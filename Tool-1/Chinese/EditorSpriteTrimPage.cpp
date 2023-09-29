@@ -30,12 +30,12 @@ static double lastMouseY = 0;
 
 
 EditorSpriteTrimPage::EditorSpriteTrimPage()
-        : mImportEditorButton( mainFont, -310, 260, "Sprites" ),
-          mSaveButton( mainFont, 400, 64, "Save" ),
-          mClearRectButton( mainFont, 400, -65, "X Rect" ),
-          mFreehandSplitButton( mainFont, 400, 192, "Freehand Split" ),
+        : mImportEditorButton( mainFont, -310, 260, "Sprites - 图元" ),
+          mSaveButton( mainFont, 400, 64, "保存" ),
+          mClearRectButton( mainFont, 400, -65, "X 截面" ),
+          mFreehandSplitButton( mainFont, 400, 192, "自由分割" ),
           mBrushSizeSlider( smallFont, 400, 292,
-                            2, 100, 20, 1, 50, "Brush Size" ),
+                            2, 100, 20, 1, 50, "刷子尺寸" ),
           mFreehandSplitMode( false ),
           mSpritePicker( &spritePickable, -410, 90 ),
           mPickedSprite( -1 ),
@@ -683,13 +683,13 @@ void EditorSpriteTrimPage::actionPerformed( GUIComponent *inTarget ) {
     else if( inTarget == &mFreehandSplitButton ) {
         if( mFreehandSplitMode ) {
             mFreehandSplitMode = false;
-            mFreehandSplitButton.setLabelText( "Freehand Split" );
+            mFreehandSplitButton.setLabelText( "自由分割" );
             mBrushSizeSlider.setVisible( false );
             mSaveButton.setVisible( false );
             }
         else {
             mFreehandSplitMode = true;
-            mFreehandSplitButton.setLabelText( "Rect Split" );
+            mFreehandSplitButton.setLabelText( "矩形分割" );
             mBrushSizeSlider.setVisible( true );
             
             mRects.deleteAll();
@@ -1030,7 +1030,7 @@ void EditorSpriteTrimPage::makeActive( char inFresh ) {
 
     mFreehandSplitMode = false;
     mFreehandSplitButton.setVisible( true );
-    mFreehandSplitButton.setLabelText( "Freehand Split" );
+    mFreehandSplitButton.setLabelText( "自由分割" );
 
     mSpritePicker.redoSearch( false );
     
