@@ -67,7 +67,7 @@ EditorObjectPage::EditorObjectPage()
           mMapChanceField( smallFont, 
                            -250,  64, 6,
                            false,
-                           "地图生成几率P", "0123456789.", NULL ),
+                           "自然生成几率", "0123456789.", NULL ),
           mHeatValueField( smallFont, 
                            -250,  32, 4,
                            false,
@@ -4084,14 +4084,14 @@ void EditorObjectPage::draw( doublePair inViewCenter,
     
         pos.x -= checkboxSep;
         
-        smallFont->drawString( "磨损 X", pos, alignRight );
+        smallFont->drawString( "磨损 X-Worn X", pos, alignRight );
         }
     if( mInvisibleWhenUnwornCheckbox.isVisible() ) {
         pos = mInvisibleWhenUnwornCheckbox.getPosition();
     
         pos.x -= checkboxSep;
         
-        smallFont->drawString( "未磨损 X", pos, alignRight );
+        smallFont->drawString( "未磨损 X-Unworn X", pos, alignRight );
         }
 
     if( mInvisibleWhenContainedCheckbox.isVisible() ) {
@@ -4099,7 +4099,7 @@ void EditorObjectPage::draw( doublePair inViewCenter,
     
         pos.x -= checkboxSep;
         
-        smallFont->drawString( "包含 X", pos, alignRight );
+        smallFont->drawString( "包含 X-Contained X", pos, alignRight );
         }
 
     if( mBehindSlotsCheckbox.isVisible() ) {
@@ -4107,7 +4107,7 @@ void EditorObjectPage::draw( doublePair inViewCenter,
     
         pos.x -= checkboxSep;
         
-        smallFont->drawString( "Behind Slots", pos, alignRight );
+        smallFont->drawString( "置于容器槽位后", pos, alignRight );
         }
 
     if( mBehindPlayerCheckbox.isVisible() ) {
@@ -4115,7 +4115,7 @@ void EditorObjectPage::draw( doublePair inViewCenter,
     
         pos.x -= checkboxSep;
         
-        smallFont->drawString( "Behind Player", pos, alignRight );
+        smallFont->drawString( "置于玩家后", pos, alignRight );
         }
 
     if( mAdditiveBlendCheckbox.isVisible() ) {
@@ -4123,148 +4123,148 @@ void EditorObjectPage::draw( doublePair inViewCenter,
     
         pos.x -= checkboxSep;
         
-        smallFont->drawString( "Additive Blend", pos, alignRight );
+        smallFont->drawString( "加乘式混合模式-Additive Blend", pos, alignRight );
         }
     
 
     if( mSlotsLockedCheckbox.isVisible() ) {
         pos = mSlotsLockedCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Locked", pos, alignRight );
+        smallFont->drawString( "锁住的容器", pos, alignRight );
         }
 
     if( mNoFlipCheckbox.isVisible() ) {
         pos = mNoFlipCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "No Flip", pos, alignRight );
+        smallFont->drawString( "不翻转", pos, alignRight );
         }
     if( mSideAccessCheckbox.isVisible() ) {
         pos = mSideAccessCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Side Access", pos, alignRight );
+        smallFont->drawString( "仅东西交互-Side Access", pos, alignRight );
         }
 
     
     if( mAgingLayerCheckbox.isVisible() ) {
         pos = mAgingLayerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Age Layer", pos, alignRight );
+        smallFont->drawString( "年龄显示图元-Age Layer", pos, alignRight );
         }
 
 
     if( mInvisibleWhenHoldingCheckbox.isVisible() ) {
         pos = mInvisibleWhenHoldingCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Holder", pos, alignRight );
+        smallFont->drawString( "持有人-Holder", pos, alignRight );
         }
     
 
     if( mPersonNoSpawnCheckbox.isVisible() ) {
         pos = mPersonNoSpawnCheckbox.getPosition();
         pos.y += checkboxSep + 5;
-        smallFont->drawString( "NoSpawn", pos, alignCenter );
+        smallFont->drawString( "永远不会生育", pos, alignCenter );
         }
 
     if( mMaleCheckbox.isVisible() ) {
         pos = mMaleCheckbox.getPosition();
         pos.y += checkboxSep + 5;
-        smallFont->drawString( "Male", pos, alignCenter );
+        smallFont->drawString( "性别（是则男-否则女）", pos, alignCenter );
         }
 
     if( mDeathMarkerCheckbox.isVisible() ) {
         pos = mDeathMarkerCheckbox.getPosition();
         pos.y += checkboxSep + 5;
-        smallFont->drawString( "Death", pos, alignCenter );
+        smallFont->drawString( "最终死亡条件-Death", pos, alignCenter );
         }
 
     if( mHomeMarkerCheckbox.isVisible() ) {
         pos = mHomeMarkerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Home", pos, alignRight );
+        smallFont->drawString( "家-Home", pos, alignRight );
         }
 
     if( mFloorCheckbox.isVisible() ) {
         pos = mFloorCheckbox.getPosition();
         pos.y += checkboxSep + 5;
-        smallFont->drawString( "Floor", pos, alignCenter );
+        smallFont->drawString( "地板", pos, alignCenter );
         }
 
     if( mHeldInHandCheckbox.isVisible() ) {
         pos = mHeldInHandCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Handheld", pos, alignRight );
+        smallFont->drawString( "拿起后是否显示在手中", pos, alignRight );
         }
     if( mRideableCheckbox.isVisible() ) {
         pos = mRideableCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Rideable", pos, alignRight );
+        smallFont->drawString( "是否可被骑行", pos, alignRight );
         }
 
     if( mBlocksWalkingCheckbox.isVisible() ) {
         pos = mBlocksWalkingCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Blocking", pos, alignRight );
+        smallFont->drawString( "占地区域", pos, alignRight );
         }
 
     if( mDrawBehindPlayerCheckbox.isVisible() ) {
         pos = mDrawBehindPlayerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Behind", pos, alignRight );
+        smallFont->drawString( "置于底层/不遮挡", pos, alignRight );
         }
 
     if( mFloorHuggingCheckbox.isVisible() ) {
         pos = mFloorHuggingCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Hug Floor", pos, alignRight );
+        smallFont->drawString( "邻地板与其连接", pos, alignRight );
         }
     
 
     if( mUseVanishCheckbox.isVisible() ) {
         pos = mUseVanishCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Vnsh", pos, alignRight );
+        smallFont->drawString( "耐久度下降而消失", pos, alignRight );
         }
     if( mUseAppearCheckbox.isVisible() ) {
         pos = mUseAppearCheckbox.getPosition();
         pos.x += checkboxSep;
-        smallFont->drawString( "Appr", pos, alignLeft );
+        smallFont->drawString( "耐久度下降而显现", pos, alignLeft );
         }
 
     if( mSimUseCheckbox.isVisible() ) {
         pos = mSimUseCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Sim", pos, alignRight );
+        smallFont->drawString( "磨损外观变化预览", pos, alignRight );
         }
 
 
     if( mHeadLayerCheckbox.isVisible() ) {
         pos = mHeadLayerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Head", pos, alignRight );
+        smallFont->drawString( "标记为头", pos, alignRight );
         }
 
     if( mBodyLayerCheckbox.isVisible() ) {
         pos = mBodyLayerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Body", pos, alignRight );
+        smallFont->drawString( "标记为身体", pos, alignRight );
         }
 
     if( mBackFootLayerCheckbox.isVisible() ) {
         pos = mBackFootLayerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Back Foot", pos, alignRight );
+        smallFont->drawString( "标记为后脚-Back Foot", pos, alignRight );
         }
 
     if( mFrontFootLayerCheckbox.isVisible() ) {
         pos = mFrontFootLayerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Front Foot", pos, alignRight );
+        smallFont->drawString( "标记为前脚-Front Foot", pos, alignRight );
         }
 
     if( mSlotVertCheckbox.isVisible() ) {
         pos = mSlotVertCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Vertical Slot", pos, alignRight );
+        smallFont->drawString( "在容器内垂直旋转", pos, alignRight );
         }
     
     
@@ -4273,41 +4273,41 @@ void EditorObjectPage::draw( doublePair inViewCenter,
         pos.x -= 100;
         pos.y += 25;
         
-        smallFont->drawString( "Creation:", pos, alignLeft );
+        smallFont->drawString( "被制作出时:", pos, alignLeft );
         }
     if( mUsingSoundWidget.isVisible() ) {
         pos = mUsingSoundWidget.getPosition();
         pos.x -= 100;
         pos.y += 25;
         
-        smallFont->drawString( "Using:", pos, alignLeft );
+        smallFont->drawString( "被使用时:", pos, alignLeft );
         }
     if( mEatingSoundWidget.isVisible() ) {
         pos = mEatingSoundWidget.getPosition();
         pos.x -= 100;
         pos.y += 25;
         
-        smallFont->drawString( "Eating:", pos, alignLeft );
+        smallFont->drawString( "被吃时:", pos, alignLeft );
         }
     if( mDecaySoundWidget.isVisible() ) {
         pos = mDecaySoundWidget.getPosition();
         pos.x -= 100;
         pos.y += 25;
         
-        smallFont->drawString( "Decay:", pos, alignLeft );
+        smallFont->drawString( "在消失时:", pos, alignLeft );
         }
 
 
     if( mCreationSoundInitialOnlyCheckbox.isVisible() ) {
         pos = mCreationSoundInitialOnlyCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Initial Only", pos, alignRight );
+        smallFont->drawString( "仅由玩家触发/仅正向转换触发", pos, alignRight );
         }
 
     if( mCreationSoundForceCheckbox.isVisible() ) {
         pos = mCreationSoundForceCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "Force", pos, alignRight );
+        smallFont->drawString( "一直播放声音-Force", pos, alignRight );
         }
 
     

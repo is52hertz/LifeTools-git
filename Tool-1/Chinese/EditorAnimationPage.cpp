@@ -43,8 +43,8 @@ static float lastMouseX, lastMouseY;
 EditorAnimationPage::EditorAnimationPage()
         : mCenterMarkSprite( loadSprite( "centerMark.tga" ) ),
           mGroundSprite( loadWhiteSprite( "testGround.tga" ) ),
-          mObjectEditorButton( mainFont, 0, 260, "Objects" ),
-          mSceneEditorButton( mainFont, -150, 260, "Scene" ),
+          mObjectEditorButton( mainFont, 0, 260, "Objects - 物品" ),
+          mSceneEditorButton( mainFont, -150, 260, "Scene - 场景" ),
           mSaveButton( smallFont, 0, 200, "Save" ),
           mDeleteButton( smallFont, 140, 200, "Delete" ),
           mObjectPicker( &objectPickable, +410, 90 ),
