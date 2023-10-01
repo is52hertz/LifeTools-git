@@ -23,11 +23,12 @@ jobs:
         mv YumWorld/* OneLife
         rm -rf YumWorld
         rm -rf YumWorldminorGems
-    - name: Build Tool-1
+    - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
-        cd Tool-1/Build/OneLife
-        ./configure
-        cd gameSource
+        cd Tool-1/Build
+        cp OneLife/scripts/TestBuildLinux.sh .
+        ./TestBuildLinux.sh
+        cd OneLife/gameSource
         ./makeEditor.sh
 
     - name: Copy EditOneLife
