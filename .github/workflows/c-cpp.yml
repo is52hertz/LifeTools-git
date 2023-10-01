@@ -41,9 +41,9 @@ jobs:
     - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
         cd Tool-1/Build
-        cp OneLife/scripts/TestBuildLinux.sh .
-        chmod +x TestBuildLinux.sh
-        ./TestBuildLinux.sh
+        cp OneLife/scripts/skps2010Scripts/skps2010Build.sh .
+        chmod +x skps2010Build.sh
+        ./skps2010Build.sh
         find . -type f -name '*.o' -exec rm {} +
         find . -type f -name '*.dep' -exec rm {} +
         rm OneLife/gameSource/Makefile.minorGems_dependencies
