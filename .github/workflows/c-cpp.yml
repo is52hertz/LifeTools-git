@@ -44,9 +44,15 @@ jobs:
         cp OneLife/scripts/skps2010Scripts/skps2010Build.sh .
         chmod +x skps2010Build.sh
         ./skps2010Build.sh
+        cd OneLife
         find . -type f -name '*.o' -exec rm {} +
         find . -type f -name '*.dep' -exec rm {} +
+        cd ..
         rm OneLife/gameSource/Makefile.minorGems_dependencies
+        cd minorGems
+        find . -type f -name '*.o' -exec rm {} +
+        find . -type f -name '*.dep' -exec rm {} +
+        cd ..
         cd OneLife/gameSource
         ./makeEditor.sh
 
