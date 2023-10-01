@@ -85,7 +85,7 @@ jobs:
         sudo apt-get install libglfw3-dev libglfw3
     - name: freetype
       run: |
-        cd Tool-1/Build.World/freetype-2.13.2
+        cd Tool-1/Build.world/freetype-2.13.2
         cd builds/unix
         chmod +x configure
         ./configure
@@ -94,7 +94,7 @@ jobs:
         sudo make install
     - name: Clone Git Repositories
       run: |
-        cd Tool-1/Build.World
+        cd Tool-1/Build.world
         rm -rf OneLife/*
         rm -rf minorGems/*
         rm -rf OneLife
@@ -104,7 +104,7 @@ jobs:
         cp ../Source/World/* OneLife/gameSource/
     - name: Build Tool-1{World} [workflowBuildOneEditor]
       run: |
-        cd Tool-1/Build.World
+        cd Tool-1/Build.world
         cp OneLife/scripts/skps2010Scripts/skps2010Build.sh .
         chmod +x skps2010Build.sh
         ./skps2010Build.sh
@@ -122,14 +122,14 @@ jobs:
 
     - name: Copy EditOneLife
       run: |
-        cp Tool-1/Build.World/OneLife/gameSource/EditOneLife Tool-1/Build.World
+        cp Tool-1/Build.world/OneLife/gameSource/EditOneLife Tool-1/Build.world
 
     - name: Display Build Result
       run: |
-        ls -l Tool-1/Build.World/OneLife/gameSource/EditOneLife
+        ls -l Tool-1/Build.world/OneLife/gameSource/EditOneLife
     - name: Upload Build Result
       uses: actions/upload-artifact@v2
       with:
         name: EditOneLife[Tool-1]{World}
-        path: Tool-1/Build.World/EditOneLife
+        path: Tool-1/Build.world/EditOneLife
 
