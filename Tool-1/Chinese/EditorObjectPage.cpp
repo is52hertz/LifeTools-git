@@ -85,9 +85,9 @@ EditorObjectPage::EditorObjectPage()
                            false,
                            "速度", "0123456789.", NULL ),
           mContainSizeField( smallFont, 
-                             250,  -120, 4,
+                             250,  -122, 4,
                              false,
-                             "Contain 尺寸", "0123456789.", NULL ),
+                             "占有容器尺寸", "0123456789.", NULL ),
           mSlotSizeField( smallFont, 
                           -280,  -230, 4,
                           false,
@@ -112,11 +112,11 @@ EditorObjectPage::EditorObjectPage()
                               false,
                               "拾取限制年龄", "0123456789.", NULL ),
           mRaceField( smallFont, 
-                      150, -120, 2,
+                      150, -122, 2,
                       true,
-                      "分配种族Race", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", NULL ),
+                      "分配种族", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", NULL ),
           mSaveObjectButton( smallFont, 210, -260, "新保存" ),
-          mReplaceObjectButton( smallFont, 310, -260, "替换" ),
+          mReplaceObjectButton( smallFont, 280, -260, "替换旧" ),
           mClearObjectButton( smallFont, -260, 200, "全部清除" ),
           mClearRotButton( smallFont, -260, 120, "0 旋转" ),
           mRot45ForwardButton( smallFont, -215, 120, ">" ),
@@ -128,12 +128,12 @@ EditorObjectPage::EditorObjectPage()
           mAnimEditorButton( mainFont, 360, 260, "Anim - 动画" ),
           mMoreSlotsButton( smallFont, -280, -110, "更多" ),
           mLessSlotsButton( smallFont, -280, -166, "更少" ),
-          mAgingLayerCheckbox( 290, -22, 2 ),
-          mHeadLayerCheckbox( 290, 104, 2 ),
-          mBodyLayerCheckbox( 290, 84, 2 ),
-          mBackFootLayerCheckbox( 290, 64, 2 ),
-          mFrontFootLayerCheckbox( 290, 44, 2 ),
-          mInvisibleWhenHoldingCheckbox( 290, 15, 2 ),
+          mAgingLayerCheckbox( 360, -22, 2 ),
+          mHeadLayerCheckbox( 360, 104, 2 ),
+          mBodyLayerCheckbox( 360, 84, 2 ),
+          mBackFootLayerCheckbox( 360, 64, 2 ),
+          mFrontFootLayerCheckbox( 360, 44, 2 ),
+          mInvisibleWhenHoldingCheckbox( 360, 15, 2 ),
           mInvisibleWhenWornCheckbox( 290, 0, 2 ),
           mInvisibleWhenUnwornCheckbox( 290, 0, 2 ),
           mInvisibleWhenContainedCheckbox( 290, 0, 2 ),
@@ -141,26 +141,26 @@ EditorObjectPage::EditorObjectPage()
           mBehindPlayerCheckbox( -190, 0, 2 ),
           mAdditiveBlendCheckbox( -190, 0, 2 ),
           mAgeInField( smallFont, 
-                       260,  -52, 6,
+                       270,  -52, 6,
                        false,
-                       "In", "0123456789.", NULL ),
+                       "开始", "0123456789.", NULL ),
           mAgeOutField( smallFont, 
-                        260,  -90, 6,
+                        270,  -90, 6,
                         false,
-                        "Out", "0123456789.", NULL ),
-          mAgePunchInButton( smallFont, 310, -52, "S" ),
-          mAgePunchOutButton( smallFont, 310, -90, "S" ),
-          mPersonNoSpawnCheckbox( 290, -150, 2 ),
+                        "结束", "0123456789.", NULL ),
+          mAgePunchInButton( smallFont, 320, -52, "重置" ),
+          mAgePunchOutButton( smallFont, 320, -90, "重置" ),
+          mPersonNoSpawnCheckbox( 120, -160, 2 ),
           // these are in same spot because they're never shown at same time
-          mMaleCheckbox( 290, -190, 2 ),
+          mMaleCheckbox( 120, -195, 2 ),
           mDeathMarkerCheckbox( 520, -245, 2 ),
-          mHomeMarkerCheckbox( 100, -120, 2 ),
+          mHomeMarkerCheckbox( 115, -122, 2 ),
           mFloorCheckbox( 330, -150, 2 ),
           mHeldInHandCheckbox( 360, 36, 2 ),
           mRideableCheckbox( 360, 16, 2 ),
           mBlocksWalkingCheckbox( 360, -4, 2 ),
-          mDrawBehindPlayerCheckbox( 290, -90, 2 ),
-          mFloorHuggingCheckbox( 290, -110, 2 ),
+          mDrawBehindPlayerCheckbox( 350, -90, 2 ),
+          mFloorHuggingCheckbox( 350, -110, 2 ),
           mLeftBlockingRadiusField( smallFont, 
                                     290,  -30, 2,
                                     false,
@@ -177,8 +177,8 @@ EditorObjectPage::EditorObjectPage()
                            300,  110, 4,
                            false,
                            "", "0123456789.", NULL ),
-          mUseVanishCheckbox( 248, 86, 2 ),
-          mUseAppearCheckbox( 272, 86, 2 ),
+          mUseVanishCheckbox( 340, -65, 2 ),
+          mUseAppearCheckbox( 220, -83, 2 ),
           mSimUseCheckbox( 330, 64, 2 ),
           mSimUseSlider( smallFont, 220, 64, 2, 50, 20, 0, 10, "" ),
           mDemoClothesButton( smallFont, 323, 200, "穿着坐标调整" ),
@@ -195,7 +195,7 @@ EditorObjectPage::EditorObjectPage()
           mResetVertRotButton( smallFont, 160, -150, "重置" ),
           mDemoVertRot( false ),
           mSpritePicker( &spritePickable, -460, 90 ),
-          mObjectPicker( &objectPickable, +410, 90 ),
+          mObjectPicker( &objectPickable, +460, 90 ),
           mPersonAgeSlider( smallFont, -55, -220, 2,
                             100, 20,
                             0, 100, "年龄预览" ),
@@ -697,10 +697,10 @@ EditorObjectPage::EditorObjectPage()
     
     mInvisibleWhenWornCheckbox.setPosition( 168, 320 );
     mInvisibleWhenUnwornCheckbox.setPosition( 168, 300 );
-    mInvisibleWhenContainedCheckbox.setPosition( -118, 320 );
-    mBehindSlotsCheckbox.setPosition( -118, 217 );
-    mBehindPlayerCheckbox.setPosition( -118, 197 );
-    mAdditiveBlendCheckbox.setPosition( -118, 300 );
+    mInvisibleWhenContainedCheckbox.setPosition( -118, 305 );
+    mBehindSlotsCheckbox.setPosition( -118, 317 );
+    mBehindPlayerCheckbox.setPosition( -113, 207 );
+    mAdditiveBlendCheckbox.setPosition( 45, 207 );
 
     addKeyClassDescription( &mKeyLegend, "n/m", "切换图层" );
     addKeyClassDescription( &mKeyLegend, "arrows", "移动图层" );
@@ -719,7 +719,7 @@ EditorObjectPage::EditorObjectPage()
 
     addKeyClassDescription( &mKeyLegendC, "R-Click", "替换图层" );
 
-    addKeyClassDescription( &mKeyLegendD, "R-Click", "插入Objects" );
+    addKeyClassDescription( &mKeyLegendD, "R-Click", "插入物品/对象" );
     
 
     mColorClipboard.r = 1;
@@ -4141,14 +4141,14 @@ void EditorObjectPage::draw( doublePair inViewCenter,
     if( mSideAccessCheckbox.isVisible() ) {
         pos = mSideAccessCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "仅东西交互-Side Access", pos, alignRight );
+        smallFont->drawString( "仅东西交互", pos, alignRight );
         }
 
     
     if( mAgingLayerCheckbox.isVisible() ) {
         pos = mAgingLayerCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "年龄显示图元-Age Layer", pos, alignRight );
+        smallFont->drawString( "特定年龄范围显示图元", pos, alignRight );
         }
 
 
@@ -4361,7 +4361,7 @@ void EditorObjectPage::draw( doublePair inViewCenter,
 
 
     legendPos = mImportEditorButton.getPosition();
-    legendPos.x = -440;
+    legendPos.x = -540;
     legendPos.y += 20;
     
     drawKeyLegend( &mKeyLegendB, legendPos );
