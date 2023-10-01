@@ -1,23 +1,45 @@
-name: C/C++ CI
-
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - name: Clone Git Repositories
+      run: |
+        cd Tool-1/Build
+        rm -rf OneLife/*
+        rm -rf minorGems/*
+        git clone git@github.com:is52hertz/YumWorldminorGems.git
+        git clone git@github.com:is52hertz/YumWorld.git
+        mv YumWorldminorGems/* minorGems
+        mv YumWorld/* OneLife
+        rm -rf YumWorld
+        rm -rf YumWorldminorGems
+    - name: Build Tool-1
+      run: |
+        cd OneLife/gameSource
+        ./makeEditor.sh
+
+    - name: Copy EditOneLife
+      run: |
+        cd ../..
+        cp Tool-1/Build/OneLife/gameSource/EditOneLife .
+
+    - name: Display Build Result
+      run: |
+        ls -l OneLife/gameSource/EditOneLife
+    - name: Upload Build Result
+      uses: actions/upload-artifact@v2
+      with:
+        name: EditOneLife[Tool-1]
+        path: Tool-1/Build/EditOneLife
+      
+
