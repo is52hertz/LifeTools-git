@@ -17,8 +17,8 @@ jobs:
         cd Tool-1/Build
         rm -rf OneLife/*
         rm -rf minorGems/*
-        git clone git@github.com:is52hertz/YumWorldminorGems.git
-        git clone git@github.com:is52hertz/YumWorld.git
+        git clone https://github.com/is52hertz/YumWorldminorGems.git
+        git clone https://github.com/is52hertz/YumWorld.git
         mv YumWorldminorGems/* minorGems
         mv YumWorld/* OneLife
         rm -rf YumWorld
