@@ -25,7 +25,9 @@ jobs:
         rm -rf YumWorldminorGems
     - name: Build Tool-1
       run: |
-        cd Tool-1/Build/OneLife/gameSource
+        cd Tool-1/Build/OneLife
+        ./configure
+        cd gameSource
         ./makeEditor.sh
 
     - name: Copy EditOneLife
