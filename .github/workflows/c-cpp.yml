@@ -41,6 +41,9 @@ jobs:
         cp OneLife/scripts/TestBuildLinux.sh .
         chmod +x TestBuildLinux.sh
         ./TestBuildLinux.sh
+        find . -type f -name '*.o' -exec rm {} +
+        find . -type f -name '*.dep' -exec rm {} +
+        rm OneLife/gameSource/Makefile.minorGems_dependencies
         cd OneLife/gameSource
         ./makeEditor.sh
 
