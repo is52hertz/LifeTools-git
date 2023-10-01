@@ -1,3 +1,4 @@
+name: Tool-1
 on:
   push:
     branches:
