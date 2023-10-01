@@ -67,6 +67,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: EditOneLife[Tool-1]
-        path: Tool-1/Build/EditOneLife
+        path: Tool-1/EditOneLife
       
 
