@@ -27,6 +27,7 @@ jobs:
       run: |
         cd Tool-1/Build
         cp OneLife/scripts/TestBuildLinux.sh .
+        chmod +x TestBuildLinux.sh
         ./TestBuildLinux.sh
         cd OneLife/gameSource
         ./makeEditor.sh
