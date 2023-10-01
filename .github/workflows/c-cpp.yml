@@ -12,6 +12,16 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 1
+    - name: dependencies
+      run: |
+        sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
+    - name: freetype
+      run: |
+        cd Tool-1/Build/freetype-2.13.2
+        chmod +x configure
+        ./configure
+        make
+        sudo make install
     - name: Clone Git Repositories
       run: |
         cd Tool-1/Build
