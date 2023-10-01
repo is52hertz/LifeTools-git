@@ -18,8 +18,10 @@ jobs:
     - name: freetype
       run: |
         cd Tool-1/Build/freetype-2.13.2
+        cd builds/unix
         chmod +x configure
         ./configure
+        cd ../../
         make
         sudo make install
     - name: Clone Git Repositories
