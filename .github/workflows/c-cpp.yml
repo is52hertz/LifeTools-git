@@ -25,17 +25,16 @@ jobs:
         rm -rf YumWorldminorGems
     - name: Build Tool-1
       run: |
-        cd OneLife/gameSource
+        cd Tool-1/Build/OneLife/gameSource
         ./makeEditor.sh
 
     - name: Copy EditOneLife
       run: |
-        cd ../..
-        cp Tool-1/Build/OneLife/gameSource/EditOneLife .
+        cp Tool-1/Build/OneLife/gameSource/EditOneLife Tool-1/
 
     - name: Display Build Result
       run: |
-        ls -l OneLife/gameSource/EditOneLife
+        ls -l Tool-1/Build/OneLife/gameSource/EditOneLife
     - name: Upload Build Result
       uses: actions/upload-artifact@v2
       with:
