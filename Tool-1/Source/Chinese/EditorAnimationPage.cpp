@@ -43,37 +43,37 @@ static float lastMouseX, lastMouseY;
 EditorAnimationPage::EditorAnimationPage()
         : mCenterMarkSprite( loadSprite( "centerMark.tga" ) ),
           mGroundSprite( loadWhiteSprite( "testGround.tga" ) ),
-          mObjectEditorButton( mainFont, 0, 260, "Objects - 物品" ),
-          mSceneEditorButton( mainFont, -150, 260, "Scene - 场景" ),
+          mObjectEditorButton( mainFont, 95, 260, "Objects-物品" ),
+          mSceneEditorButton( mainFont, -130, 260, "Scene-场景" ),
           mSaveButton( smallFont, 0, 200, "保存" ),
           mDeleteButton( smallFont, 140, 200, "删除" ),
           mObjectPicker( &objectPickable, +410, 90 ),
           mSoundWidget( smallFont, -120, -200 ),
           mSoundRepeatPerSecSlider( smallFont, -120, -264, 2,
                                     100, 20,
-                                    0, 6, "Loop Hz" ),
+                                    0, 6, "Loop 频率" ),
           mSoundRepeatPhaseSlider( smallFont, -120, -296, 2,
                                     100, 20,
-                                    0, 1, "Loop Phase" ),
+                                    0, 1, "Loop 相位" ),
           mSoundAgeInField( smallFont, 
                             -180,  -328, 6,
                             false,
                             "In", "0123456789.", NULL ),
           mSoundAgeOutField( smallFont, 
                              -50,  -328, 6,
-                             false,
+                             false,         
                              "Out", "0123456789.", NULL ),
           mSoundAgePunchInButton( smallFont, -130, -328, "S" ),
           mSoundAgePunchOutButton( smallFont, 0, -328, "S" ),
           mSoundFootstepButton( "footstepOffButton.tga",
                                 "footstepOnButton.tga",
                                 35, -328 ),
-          mPersonAgeSlider( smallFont, 100, -212, 2,
+          mPersonAgeSlider( smallFont, 110, -212, 2,
                             100, 20,
                             0, 100, "年龄" ),
-          mPlayAgeButton( smallFont, 264, -212, "P" ),
+          mPlayAgeButton( smallFont, 285, -212, "播放" ),
           mPlayingAge( false ),
-          mTestSpeedSlider( smallFont, 100, -170, 2,
+          mTestSpeedSlider( smallFont, 110, -170, 2,
                             100, 20,
                             0, 1, "测试播放速度" ),
           
@@ -120,25 +120,25 @@ EditorAnimationPage::EditorAnimationPage()
           mCopyChainButton( smallFont, -390, 270, "复制子树" ),
           mCopyChainRandButton( smallFont, -390, 310, 
                                 "复制子树 Rand 阶段" ),
-          mCopyWalkButton( smallFont, -260, 270, "复制 Walk" ),
+          mCopyWalkButton( smallFont, -290, 270, "复制 Walk" ),
           mCopyAllButton( smallFont, -470, 230, "复制所有" ),
           mCopyUpButton( smallFont, -500, 270, "复制 Up" ),
           mPasteButton( smallFont, -330, 230, "粘贴" ),
           mClearButton( smallFont, -270, 230, "清除" ),
           mNextSpriteOrSlotButton( smallFont, 280, -270, "下一图层" ),
           mPrevSpriteOrSlotButton( smallFont, 100, -270, "上一图层" ),
-          mChildButton( smallFont, 380, -330, "孩子" ),
-          mParentButton( smallFont, 380, -270, "父母" ),
+          mChildButton( smallFont, 380, -330, "子级" ),
+          mParentButton( smallFont, 380, -270, "父级" ),
           mNextSoundButton( smallFont, -30, -160, ">" ),
           mPrevSoundButton( smallFont, -210, -160, "<" ),
           mCopySoundAnimButton( smallFont, -85, -160, "复制" ),
           mCopyAllSoundAnimButton( smallFont, -85, -160, "复制全部" ),
           mPasteSoundAnimButton( smallFont, -155, -160, "粘贴" ),
-          mFullSoundCopyButton( smallFont, -300, -328, "复制选择动画的所有声音" ),
+          mFullSoundCopyButton( smallFont, -320, -328, "复制选择动画所有声音" ),
           mFullSoundPasteButton( smallFont, 130, -328, "粘贴所有声音" ),
           mSpeedMultField( smallFont, -500, -328, 4, false,
                            "速度 x", "0123456789." ),
-          mSpeedMultApplyButton( smallFont, -446, -328, "设置" ) {
+          mSpeedMultApplyButton( smallFont, -446, -328, "应用" ) {
     
     
     for( int i=0; i<=extraB; i++ ) {
@@ -428,7 +428,7 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[4] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 256, "Y-振幅Y Amp" );
+                                   0, 256, "Y振幅-Y Amp" );
     mSliders[5] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
                                    0, 1, "Y相位-Y Phase" );
@@ -437,7 +437,7 @@ EditorAnimationPage::EditorAnimationPage()
                                    100, 20,
                                    0, 12, "旋转-Rot" );
     
-    mReverseRotationCheckbox.setPosition( x - 65, boxY );
+    mReverseRotationCheckbox.setPosition( x - 115, boxY );
 
     addComponent( &mReverseRotationCheckbox );
     mReverseRotationCheckbox.addActionListener( this );
@@ -3033,18 +3033,18 @@ void EditorAnimationPage::drawUnderComponents( doublePair inViewCenter,
     if( !mHideUI && mReverseRotationCheckbox.isVisible() ) {
         pos = mReverseRotationCheckbox.getPosition();
         pos.x -= 10;
-        smallFont->drawString( "CCW", pos, alignRight );
+        smallFont->drawString( "逆时针旋转", pos, alignRight );
         }
 
     if( !mHideUI && mRandomStartPhaseCheckbox.isVisible() ) {
         pos = mRandomStartPhaseCheckbox.getPosition();
         pos.x -= 10;
-        smallFont->drawString( "Random Start Point", pos, alignRight );
+        smallFont->drawString( "随机关键帧处开始动画", pos, alignRight );
         }
     if( !mHideUI && mForceZeroStartCheckbox.isVisible() ) {
         pos = mForceZeroStartCheckbox.getPosition();
         pos.x -= 10;
-        smallFont->drawString( "Force Zero Start", pos, alignRight );
+        smallFont->drawString( "按顺序播放动画", pos, alignRight );
         }
         
     
@@ -3098,7 +3098,7 @@ void EditorAnimationPage::drawUnderComponents( doublePair inViewCenter,
         if( mCurrentSpriteOrSlot < anim->numSprites ) {
             doublePair legendPos = mObjectEditorButton.getPosition();
             
-            legendPos.x = 150;
+            legendPos.x = 220;
             legendPos.y += 20;
             
             drawKeyLegend( &mKeyLegend, legendPos );

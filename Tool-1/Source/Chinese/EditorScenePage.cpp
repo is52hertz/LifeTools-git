@@ -61,7 +61,7 @@ static SceneCell copyPeopleArea[ copyAreaSize ][ copyAreaSize ];
 EditorScenePage::EditorScenePage()
         : mPlayingTime( false ),
           mRecordingFrames( false ),
-          mAnimEditorButton( mainFont, 210, 260, "Anim - 动画" ),
+          mAnimEditorButton( mainFont, 210, 260, "Anim-动画" ),
           mSaveNewButton( smallFont, -300, 260, "新保存" ),
           mReplaceButton( smallFont, -500, 260, "覆盖" ),
           mDeleteButton( smallFont, 500, 260, "删除" ),
@@ -131,7 +131,7 @@ EditorScenePage::EditorScenePage()
           mFrameCount( 0 ),
           mLittleDheld( false ),
           mBigDheld( false ),
-          mScenesFolder( NULL, "scenes - 场景" ),
+          mScenesFolder( NULL, "scenes" ),
           mNextFile( NULL ) {
     
     addComponent( &mAnimEditorButton );
@@ -1948,8 +1948,8 @@ void EditorScenePage::drawUnderComponents( doublePair inViewCenter,
 
     doublePair legendPos = mAnimEditorButton.getPosition();
             
-    legendPos.x = -150;
-    legendPos.y += 20;
+    legendPos.x = -225;
+    legendPos.y += 125;
             
     drawKeyLegend( &mKeyLegend, legendPos );
 
