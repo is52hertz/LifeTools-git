@@ -1,4 +1,4 @@
-# LifeTools
+# LifeTools-OHOL
 > A derivative of OneLifeOneHour, called LifeTools.  
  [`English` - ThisPaper](https://github.com/is52hertz/LifeTools-git#lifetools) 
  [`zh_cn`](https://github.com/is52hertz/LifeTools-git/blob/main/MarkDown/README-zh_cn.md#lifetools)
