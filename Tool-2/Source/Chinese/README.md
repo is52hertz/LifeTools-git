@@ -1,6 +1,6 @@
 # `ohol_nodejs_stats`
 
-该资源库包含与名为 OneHourOneLife 的游戏有关的不同脚本 https://github.com/jasonrohrer/OneLife 
+该资源库包含与名为 `OneHourOneLife` 的游戏有关的不同脚本 https://github.com/jasonrohrer/OneLife 
 这些脚本可用于处理来自以下网站的 ohol 数据： http://publicdata.onehouronelife.com/
 此处对数据进行了说明： https://onehouronelife.com/forums/viewtopic.php?id=2529
 
@@ -16,7 +16,7 @@
 
 ### `oholplayersearch.js`
 此脚本可用于查找玩家的加盐邮件哈希值。
-oholgetplayerstats.js 可以使用此散列获取玩家的统计数据。
+`oholgetplayerstats.js` 可以使用此散列获取玩家的统计数据。
 你可以在不带参数的情况下执行该脚本，也可以向其传递一个 `lineage` 链接，它就会从该链接中找到玩家信息。
 
 ### `oholgetplayerstats.js`
