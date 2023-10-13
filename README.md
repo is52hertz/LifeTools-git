@@ -3,6 +3,7 @@
  [`English` - ThisPaper](https://github.com/is52hertz/LifeTools-git#lifetools) 
  [`zh_cn`](https://github.com/is52hertz/LifeTools-git/blob/main/MarkDown/README-zh_cn.md#lifetools)
 
+___
 # Summary
 ## Tool - 1
 > A better `OneEditor`.
@@ -16,11 +17,17 @@
 - Fixed `OneEditor` legacy and existing issues, [View Known Issues](https://github.com/is52hertz/LifeTools-git/issues).
 
 ### Changelog and download resources
-**Latest version**: [``]()  
+**Latest version**: [`rc2023924a`](https://github.com/is52hertz/LifeTools-git/releases/tag/rc2023924a)  
 *Update*:  
 ```
-
+https://github.com/is52hertz/LifeTools-git/releases/tag/rc2023924a
 ```
 *See more*:  
-- [Update Log]()  
-- [Download Resources]()  
+- [Update Log](https://github.com/is52hertz/LifeTools-git/blob/main/MarkDown/UPDATE.md)  
+- [Download Resources](https://github.com/is52hertz/LifeTools-git/releases)  
+
+___
+## Agreement 
+The `GNU General Public License version 3 (GNU GPL v3)` is used by default, as long as `Tool` is not specifically declared. 
+## Specifically declared 
+- Tool-2 branches from [`hetuw/ohol_nodejs_stats`](https://github.com/hetuw/ohol_nodejs_stats) uses the `GNU General Public License v2.0 (GNU GPL v2.0)`.
