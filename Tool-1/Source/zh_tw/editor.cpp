@@ -459,8 +459,8 @@ void initFrameDrawer( int inWidth, int inHeight, int inTargetFrameRate,
         if( readVersionNumber != versionNumber ) {
             AppLog::printOutNextMessage();
             AppLog::warningF( 
-                "警告：dataVersionNumber.txt中的版本号为 %d "
-                "但游戏版本是 %d...",
+                "警告：dataVersionNumber.txt中的版本號為 %d "
+                "但遊戲版本是 %d...",
                 readVersionNumber, versionNumber );
             }
         }
@@ -479,13 +479,13 @@ void initFrameDrawer( int inWidth, int inHeight, int inTargetFrameRate,
     webRetrySeconds = webRetrySecondsSetting;
 
     
-    serverAddress = SettingsManager::getStringSetting( "服务器地址" );
+    serverAddress = SettingsManager::getStringSetting( "服務器地址" );
 
     if( serverAddress == NULL ) {
         serverAddress = stringDuplicate( "127.0.0.1" );
         }
 
-    serverPort = SettingsManager::getIntSetting( "服务器端口", 5077 );
+    serverPort = SettingsManager::getIntSetting( "服務器端口", 5077 );
 
 
 
@@ -1115,10 +1115,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "SPRITE - 图元##(重建缓存)" );
+                                "SPRITE - 圖元##(重建緩存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "SPRITE - 图元" );
+                            loadingPage->setCurrentPhase( "SPRITE - 圖元" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1156,10 +1156,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "ANIMATION - 动画##(重建缓存)" );
+                                "ANIMATION - 動畫##(重建緩存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "ANIMATION - 动画" );
+                            loadingPage->setCurrentPhase( "ANIMATION - 動畫" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1198,7 +1198,7 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "OBJECT - 物品##(重建缓存)" );
+                                "OBJECT - 物品##(重建緩存)" );
                             }
                         else {
                             loadingPage->setCurrentPhase( "OBJECT - 物品" );
@@ -1238,10 +1238,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "CATEGORIES - 类别##(重建缓存)" );
+                                "CATEGORIES - 類別##(重建緩存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "CATEGORIES - 类别" );
+                            loadingPage->setCurrentPhase( "CATEGORIES - 類別" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1282,10 +1282,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "TRANSITIONS - 转换##(重建缓存)" );
+                                "TRANSITIONS - 轉換##(重建緩存)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "TRANSITIONS - 转换" );
+                            loadingPage->setCurrentPhase( "TRANSITIONS - 轉換" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
