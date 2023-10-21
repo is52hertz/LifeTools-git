@@ -40,8 +40,8 @@ static int checkboxSep = 12;
 
 
 EditorImportPage::EditorImportPage()
-        : mImportButton( smallFont, +170, 280, "图元导入" ),
-          mImportLinesButton( smallFont, +170, 240, "线层导入" ),
+        : mImportButton( smallFont, +170, 280, "圖元導入" ),
+          mImportLinesButton( smallFont, +170, 240, "線層導入" ),
           mNextSpriteImportButton( smallFont, +240, 280, ">" ),
           mPrevSpriteImportButton( smallFont, +100, 280, "<" ),
           mNextLinesImportButton( smallFont, +240, 240, ">" ),
@@ -50,7 +50,7 @@ EditorImportPage::EditorImportPage()
           mCurrentLinesImportCacheIndex( 0 ),
           mImportPathOverride( NULL ),
           mXTopLinesButton( smallFont, +280, 240, "X" ),
-          mImportOverlayButton( smallFont, +370, 260, "叠加导入" ),
+          mImportOverlayButton( smallFont, +370, 260, "疊加導入" ),
           mSelect( false ),
           mImportedSheet( NULL ),
           mImportedSheetSprite( NULL ),
@@ -63,27 +63,27 @@ EditorImportPage::EditorImportPage()
           mSelectionMultiplicative( false ),
           mShadowSlider( smallFont, 90, 200, 2,
                          100, 20,
-                         0, 1, "阴影" ),
+                         0, 1, "陰影" ),
           mSolidCheckbox( 305, 200, 2 ),
           mBlackLineThresholdSlider( smallFont, 90, 170, 2,
                                  100, 20,
-                                 0, 1, "黑色阈值" ),
+                                 0, 1, "黑色閾值" ),
           mBlackLineThresholdDefaultButton( smallFont, 305, 170, "D" ),
           mPaperThresholdSlider( smallFont, 90, 140, 2,
                                  100, 20,
-                                 0, 1, "纸张边界阈值" ),
+                                 0, 1, "紙張邊界閾值" ),
           mPaperThresholdDefaultButton( smallFont, 305, 140, "D" ),
           mSaturationSlider( smallFont, 90, 110, 2,
                              100, 20,
-                             -1, 2, "饱和度" ),
+                             -1, 2, "飽和度" ),
           mSaturationDefaultButton( smallFont, 305, 110, "D" ),
           mSpriteTagField( mainFont, 
                            0,  -260, 6,
                            false,
-                           "标签", NULL, " " ),
+                           "標籤", NULL, " " ),
           mSaveSpriteButton( mainFont, 210, -260, "保存" ),
-          mSaveOverlayButton( smallFont, 310, -260, "保存叠加" ),
-          mInvertButton( smallFont, 210, -320, "反转" ),
+          mSaveOverlayButton( smallFont, 310, -260, "保存疊加" ),
+          mInvertButton( smallFont, 210, -320, "反轉" ),
           mInvertColors( false ),
           mSpritePicker( &spritePickable, -410, 90 ),
           mOverlayPicker( &overlayPickable, 410, 90 ),
@@ -92,9 +92,9 @@ EditorImportPage::EditorImportPage()
           mCenterMarkSprite( loadSprite( "centerMark.tga" ) ),
           mInternalPaperMarkSprite( loadSprite( "internalPaperMark.tga" ) ),
           mCenterSet( true ),
-          mClearRotButton( smallFont, -400, -280, "0 旋转" ),
+          mClearRotButton( smallFont, -400, -280, "0 旋轉" ),
           mClearScaleButton( smallFont, -400, -240, "1 Scale" ),
-          mFlipOverlayButton( smallFont, -330, -280, "翻转 H" ),
+          mFlipOverlayButton( smallFont, -330, -280, "翻轉 H" ),
           mClearOverlayButton( smallFont, -330, -240, "X Ovly" ),
           mShowTagMessage( false ),
           mAKeyDown( false ) {
@@ -225,24 +225,24 @@ EditorImportPage::EditorImportPage()
         
 
 
-    addKeyClassDescription( &mSheetKeyLegend, "r-mouse", "移动图层" );
-    addKeyDescription( &mSheetKeyLegend, 'c', "移动图元中心" );
-    addKeyDescription( &mSheetKeyLegend, 'x', "复制像素颜色" );
+    addKeyClassDescription( &mSheetKeyLegend, "r-mouse", "移動圖層" );
+    addKeyDescription( &mSheetKeyLegend, 'c', "移動圖元中心" );
+    addKeyDescription( &mSheetKeyLegend, 'x', "複製像素顏色" );
     addKeyClassDescription( &mSheetKeyLegend, "w-click", "白色填充" );
     addKeyDescription( &mSheetKeyLegend, 'W', "清除白色" );
-    addKeyClassDescription( &mSheetKeyLegend, "ijkl", "移动图层" );
-    addKeyClassDescription( &mSheetKeyLegend, "Ctr/Shft", "更大的跳跃" );
+    addKeyClassDescription( &mSheetKeyLegend, "ijkl", "移動圖層" );
+    addKeyClassDescription( &mSheetKeyLegend, "Ctr/Shft", "更大的跳躍" );
 
-    addKeyClassDescription( &mSheetKeyLegendB, "p-click", "内部文件" );
-    addKeyDescription( &mSheetKeyLegendB, 'P', "清除内部文件" );
+    addKeyClassDescription( &mSheetKeyLegendB, "p-click", "內部文件" );
+    addKeyDescription( &mSheetKeyLegendB, 'P', "清除內部文件" );
     
 
-    addKeyClassDescription( &mLinesKeyLegend, "arrows", "移动线层" );
+    addKeyClassDescription( &mLinesKeyLegend, "arrows", "移動線層" );
     
 
-    addKeyDescription( &mOverlayKeyLegend, 't', "移动叠加" );
-    addKeyDescription( &mOverlayKeyLegend, 's', "比例叠加" );
-    addKeyDescription( &mOverlayKeyLegend, 'r', "旋转叠加" );
+    addKeyDescription( &mOverlayKeyLegend, 't', "移動疊加" );
+    addKeyDescription( &mOverlayKeyLegend, 's', "比例疊加" );
+    addKeyDescription( &mOverlayKeyLegend, 'r', "旋轉疊加" );
     
     }
 
@@ -654,7 +654,7 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
             if( !imported ) {
                 char *fullFileName = importFile->getFullFileName();
                 
-                char *message = autoSprintf( "从以下地址导入 PNG 失败：###"
+                char *message = autoSprintf( "從以下地址導入 PNG 失敗：###"
                                              "%s", fullFileName );
                 
                 delete [] fullFileName;
@@ -671,10 +671,10 @@ void EditorImportPage::actionPerformed( GUIComponent *inTarget ) {
             }
         else {
             if( inTarget == &mImportButton ) {
-                setStatus( "未在设置文件夹中设置导入路径", true );
+                setStatus( "未在設置文件夾中設置導入路徑", true );
                 }
             else {
-                setStatus( "OverlayImport 文件夹中未发现 PNG 文件", true );
+                setStatus( "OverlayImport 文件夾中未發現 PNG 文件", true );
                 }
             }
         

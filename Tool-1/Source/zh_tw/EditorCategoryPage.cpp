@@ -78,10 +78,10 @@ char childUnpickable( int inID ) {
 EditorCategoryPage::EditorCategoryPage()
         : mObjectParentPicker( &objectPickableParent, -410, 90 ),
           mObjectChildPicker( &objectPickableChild, +410, 90 ),
-          mTransEditorButton( mainFont, 0, 260, "Transitions - 转换" ),
+          mTransEditorButton( mainFont, 0, 260, "Transitions - 轉換" ),
           mIsPatternCheckbox( 220, 0, 2 ),
           mIsProbSetCheckbox( 220, -20, 2 ),
-          mMakeUniformButton( smallFont, 220, -80, "制作制服" ) {
+          mMakeUniformButton( smallFont, 220, -80, "製作制服" ) {
     
     mObjectChildPicker.addFilter( &childUnpickable );
     mObjectParentPicker.addFilter( &parentUnpickable );
@@ -116,14 +116,14 @@ EditorCategoryPage::EditorCategoryPage()
     mSelectionIndex = 0;
     mCurrentWeightDigit = 0;
 
-    addKeyClassDescription( &mKeyLegend, "Up/Down", "更改选择" );
-    addKeyClassDescription( &mKeyLegend, "Pg Up/Down", "交换顺序" );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "连翻5页" );
-    addKeyClassDescription( &mKeyLegend, "Bkspce", "删除项目" );
-    addKeyDescription( &mKeyLegend, 'c', "将 CSV 复制到剪贴板" );
+    addKeyClassDescription( &mKeyLegend, "Up/Down", "更改選擇" );
+    addKeyClassDescription( &mKeyLegend, "Pg Up/Down", "交換順序" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "連翻5頁" );
+    addKeyClassDescription( &mKeyLegend, "Bkspce", "刪除項目" );
+    addKeyDescription( &mKeyLegend, 'c', "將 CSV 複製到剪貼板" );
 
-    addKeyDescription( &mKeyLegendPattern, 'd', "重复项目到位" );
-    addKeyDescription( &mKeyLegendPattern, 'D', "将项目复制到底部" );
+    addKeyDescription( &mKeyLegendPattern, 'd', "重複項目到位" );
+    addKeyDescription( &mKeyLegendPattern, 'D', "將項目複製到底部" );
     }
 
 
@@ -345,7 +345,7 @@ static void drawObjectList( char inCategories,
             
             textPos.x -= 20;
             
-            smallFont->drawString( "顺序-Pat", 
+            smallFont->drawString( "順序-Pat", 
                                    textPos, alignRight );
             }
         else if( inCategories && getCategory( objID )->isProbabilitySet ) {
@@ -442,17 +442,17 @@ void EditorCategoryPage::draw( doublePair inViewCenter,
             if( mIsPatternCheckbox.isVisible() ) {
                 pos = mIsPatternCheckbox.getPosition();
                 pos.x -= 12;
-                smallFont->drawString( "区分顺序", pos, alignRight );
+                smallFont->drawString( "區分順序", pos, alignRight );
                 }
             if( mIsProbSetCheckbox.isVisible() ) {
                 pos = mIsProbSetCheckbox.getPosition();
                 pos.x -= 12;
-                smallFont->drawString( "设置概率", pos, alignRight );
+                smallFont->drawString( "設置概率", pos, alignRight );
                 
                 if( mIsProbSetCheckbox.getToggled() ) {
                     pos = mIsProbSetCheckbox.getPosition();
                     pos.y -= 20;
-                    smallFont->drawString( "0-9 = 输入概率数字", pos,
+                    smallFont->drawString( "0-9 = 輸入概率數字", pos,
                                            alignCenter );
                     }
                 }

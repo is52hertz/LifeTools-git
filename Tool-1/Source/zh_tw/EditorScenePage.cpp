@@ -61,12 +61,12 @@ static SceneCell copyPeopleArea[ copyAreaSize ][ copyAreaSize ];
 EditorScenePage::EditorScenePage()
         : mPlayingTime( false ),
           mRecordingFrames( false ),
-          mAnimEditorButton( mainFont, 210, 260, "Anim-动画" ),
+          mAnimEditorButton( mainFont, 210, 260, "Anim-動畫" ),
           mSaveNewButton( smallFont, -300, 260, "新保存" ),
-          mReplaceButton( smallFont, -500, 260, "覆盖" ),
-          mDeleteButton( smallFont, 500, 260, "删除" ),
-          mSaveTestMapButton( smallFont, -300, 200, "导出测试地图" ),
-          mLoadTestMapButton( smallFont, -500, 200, "导入测试地图" ),
+          mReplaceButton( smallFont, -500, 260, "覆蓋" ),
+          mDeleteButton( smallFont, 500, 260, "刪除" ),
+          mSaveTestMapButton( smallFont, -300, 200, "導出測試地圖" ),
+          mLoadTestMapButton( smallFont, -500, 200, "導入測試地圖" ),
           mNextSceneButton( smallFont, -420, 260, ">" ),
           mPrevSceneButton( smallFont, -580, 260, "<" ),
           mClearSceneButton( smallFont, 350, 260, "清除" ),
@@ -74,7 +74,7 @@ EditorScenePage::EditorScenePage()
           mObjectPicker( &objectPickable, 410, 90 ),
           mPersonAgeSlider( smallFont, -55, -220, 2,
                             100, 20,
-                            0, 100, "年龄" ),
+                            0, 100, "年齡" ),
           mCellAnimRadioButtons( smallFont, -200, -250, NUM_CELL_ANIM,
                                  cellAnimNames,
                                  true, 2 ),                                 
@@ -83,16 +83,16 @@ EditorScenePage::EditorScenePage()
                                    true, 2 ),                            
           mCellAnimFreezeSlider( smallFont, -450, -340, 2,
                                  300, 20,
-                                 -2, 4, "动画播放倍率" ),
+                                 -2, 4, "動畫播放倍率" ),
           mPersonAnimFreezeSlider( smallFont, 50, -340, 2,
                                    300, 20,
-                                   -2, 2, "人物动画播放倍率" ),
+                                   -2, 2, "人物動畫播放倍率" ),
           mCellSpriteVanishSlider( smallFont, -450, -310, 2,
                                    100, 20,
                                    0, 1, "使用" ),
           mCellSpriteVarSlider( smallFont, -250, -310, 2,
                                 100, 20,
-                                0, 1, "变量" ),
+                                0, 1, "變量" ),
           mCellXOffsetSlider( smallFont, -450, -230, 2,
                               175, 20,
                               -MAX_OFFSET, MAX_OFFSET, "X 偏移" ),
@@ -106,10 +106,10 @@ EditorScenePage::EditorScenePage()
                               175, 20,
                               -MAX_OFFSET, MAX_OFFSET, "Y 偏移" ),
           mCellMoveDelayField( smallFont, -450, -290, 4,
-                               false, "移动延迟 秒",
+                               false, "移動延遲 秒",
                                "0123456789." ),
           mPersonMoveDelayField( smallFont, 200, -290, 4,
-                               false, "移动延迟 秒",
+                               false, "移動延遲 秒",
                                "0123456789." ),
           mPersonEmotField( smallFont, 360, -290, 7,
                                true, "表情",
@@ -291,24 +291,24 @@ EditorScenePage::EditorScenePage()
     checkNextPrevVisible();
 
 
-    addKeyClassDescription( &mKeyLegend, "Arrows", "更改所选地块" );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "更大的地块跳跃" );
-    addKeyClassDescription( &mKeyLegend, "f/F", "翻转 物体/人物" );
-    addKeyClassDescription( &mKeyLegend, "c/C/A", "复制 物体/人物/区域" );
-    addKeyClassDescription( &mKeyLegend, "x/X", "剪切 物体/人物" );
-    addKeyClassDescription( &mKeyLegend, "v/V", "粘贴/填充" );
+    addKeyClassDescription( &mKeyLegend, "Arrows", "更改所選地塊" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "更大的地塊跳躍" );
+    addKeyClassDescription( &mKeyLegend, "f/F", "翻轉 物體/人物" );
+    addKeyClassDescription( &mKeyLegend, "c/C/A", "複製 物體/人物/區域" );
+    addKeyClassDescription( &mKeyLegend, "x/X", "剪切 物體/人物" );
+    addKeyClassDescription( &mKeyLegend, "v/V", "粘貼/填充" );
     addKeyClassDescription( &mKeyLegend, "i/I", "放入容器/手持" );
-    addKeyClassDescription( &mKeyLegend, "Bkspc", "清除地块" );
-    addKeyClassDescription( &mKeyLegend, "Hold d/D", "设置物体/人物的目的地" );
-    addKeyDescription( &mKeyLegend, 'o', "设置地块原点" );
-    addKeyDescription( &mKeyLegend, 'p', "播放时间" );
-    addKeyDescription( &mKeyLegend, 'r', "记录帧 - 记录每一帧并保存，可能会导致卡死" );
-    addKeyDescription( &mKeyLegend, 'h', "隐藏/显示 UI" );
+    addKeyClassDescription( &mKeyLegend, "Bkspc", "清除地塊" );
+    addKeyClassDescription( &mKeyLegend, "Hold d/D", "設置物體/人物的目的地" );
+    addKeyDescription( &mKeyLegend, 'o', "設置地塊原點" );
+    addKeyDescription( &mKeyLegend, 'p', "播放時間" );
+    addKeyDescription( &mKeyLegend, 'r', "記錄幀 - 記錄每一幀並保存，可能會導致卡死" );
+    addKeyDescription( &mKeyLegend, 'h', "隱藏/顯示 UI" );
 
-    addKeyClassDescription( &mKeyLegendG, "R-Click", "填充地块" );
+    addKeyClassDescription( &mKeyLegendG, "R-Click", "填充地塊" );
 
     addKeyClassDescription( &mKeyLegendC, "R-Click", "添加 容器" );
-    addKeyClassDescription( &mKeyLegendP, "R-Click", "添加 服装/手持" );
+    addKeyClassDescription( &mKeyLegendP, "R-Click", "添加 服裝/手持" );
     addKeyClassDescription( &mKeyLegendF, "R-Click", "添加 地板" );
     }
 

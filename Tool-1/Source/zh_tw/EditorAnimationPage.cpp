@@ -387,12 +387,12 @@ EditorAnimationPage::EditorAnimationPage()
         mCheckboxes[i]->addActionListener( this );
         boxY -= 20;
         }
-    mCheckboxNames[0] = "停留闲置";
-    mCheckboxNames[1] = "拾取物体";
-    mCheckboxNames[2] = "改变位置";
+    mCheckboxNames[0] = "停留閒置";
+    mCheckboxNames[1] = "拾取物體";
+    mCheckboxNames[2] = "改變位置";
     mCheckboxNames[3] = "消耗食用";
-    mCheckboxNames[4] = "做长互动";
-    mCheckboxNames[5] = "额外附加";
+    mCheckboxNames[4] = "做長互動";
+    mCheckboxNames[5] = "額外附加";
 
     mCheckboxAnimTypes[0] = ground;
     mCheckboxAnimTypes[1] = held;
@@ -414,7 +414,7 @@ EditorAnimationPage::EditorAnimationPage()
     
     mSliders[0] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "X振动频率-X Osc" );
+                                   0, 8, "X振動頻率-X Osc" );
 
     mXOffsetSlider = new ValueSlider( smallFont, x - 182, 
                                       mSliders[0]->getPosition().y, 
@@ -431,7 +431,7 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[3] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "Y振动频率-Y Osc" );
+                                   0, 8, "Y振動頻率-Y Osc" );
 
     mYOffsetSlider = new ValueSlider( smallFont, x - 182, 
                                       mSliders[3]->getPosition().y, 
@@ -448,7 +448,7 @@ EditorAnimationPage::EditorAnimationPage()
     
     mSliders[6] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 12, "旋转-Rot" );
+                                   0, 12, "旋轉-Rot" );
     
     mReverseRotationCheckbox.setPosition( x - 115, boxY );
 
@@ -461,7 +461,7 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[8] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "Rock振动频率-Rock Osc" );
+                                   0, 8, "Rock振動頻率-Rock Osc" );
     mSliders[9] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
                                    0, 1, "Rock振幅Rock Amp" );
@@ -472,7 +472,7 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[11] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "闪烁速度-Fade Osc" );
+                                   0, 8, "閃爍速度-Fade Osc" );
     mSliders[12] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
                                    0, 1, "淡入淡出-Fade Hard" );
@@ -489,17 +489,17 @@ EditorAnimationPage::EditorAnimationPage()
     
     mSliders[16] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, "动画播放时长-Duration Sec" );
+                                    0, 100, "動畫播放時長-Duration Sec" );
     mSliders[16]->forceDecimalDigits( 2 );
     
     mSliders[17] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, "冻结阶段时长Pause Sec" );
+                                    0, 100, "凍結階段時長Pause Sec" );
     mSliders[17]->forceDecimalDigits( 2 );
 
     mSliders[18] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, "首次播放延迟-Start Pause Sec" );
+                                    0, 100, "首次播放延遲-Start Pause Sec" );
     mSliders[18]->forceDecimalDigits( 2 );
     
 
@@ -543,12 +543,12 @@ EditorAnimationPage::EditorAnimationPage()
     mOtherShoe = &( mClothingSet.frontShoe );
 
     addKeyClassDescription( &mKeyLegend, "R-Click/arrows", 
-                            "移动图层旋转中心" );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "移动5/10像素" );
-    addKeyDescription( &mKeyLegend, 'f', "水平翻转" );
-    addKeyDescription( &mKeyLegend, 'h', "隐藏/显示UI" );
+                            "移動圖層旋轉中心" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "移動5/10像素" );
+    addKeyDescription( &mKeyLegend, 'f', "水平翻轉" );
+    addKeyDescription( &mKeyLegend, 'h', "隱藏/顯示UI" );
     
-    addKeyClassDescription( &mKeyLegendB, "R-Click", "复制动画" );
+    addKeyClassDescription( &mKeyLegendB, "R-Click", "複製動畫" );
 
 
     addComponent( &mCloneExtrasToOtherPeopleButton );
