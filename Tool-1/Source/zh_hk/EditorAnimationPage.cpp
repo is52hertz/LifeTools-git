@@ -44,14 +44,14 @@ EditorAnimationPage::EditorAnimationPage()
         : mCenterMarkSprite( loadSprite( "centerMark.tga" ) ),
           mGroundSprite( loadWhiteSprite( "testGround.tga" ) ),
           mObjectEditorButton( mainFont, 95, 260, "Objects-物品" ),
-          mSceneEditorButton( mainFont, -130, 260, "Scene-场景" ),
+          mSceneEditorButton( mainFont, -130, 260, "Scene-場景" ),
           mSaveButton( smallFont, 0, 200, "保存" ),
-          mDeleteButton( smallFont, 140, 200, "删除" ),
+          mDeleteButton( smallFont, 140, 200, "刪除" ),
           mObjectPicker( &objectPickable, +410, 90 ),
           mSoundWidget( smallFont, -120, -200 ),
           mSoundRepeatPerSecSlider( smallFont, -120, -264, 2,
                                     100, 20,
-                                    0, 6, "Loop 频率" ),
+                                    0, 6, "Loop 頻率" ),
           mSoundRepeatPhaseSlider( smallFont, -120, -296, 2,
                                     100, 20,
                                     0, 1, "Loop 相位" ),
@@ -70,12 +70,12 @@ EditorAnimationPage::EditorAnimationPage()
                                 35, -328 ),
           mPersonAgeSlider( smallFont, 110, -212, 2,
                             100, 20,
-                            0, 100, "年龄" ),
+                            0, 100, "年齡" ),
           mPlayAgeButton( smallFont, 285, -212, "播放" ),
           mPlayingAge( false ),
           mTestSpeedSlider( smallFont, 110, -170, 2,
                             100, 20,
-                            0, 1, "测试播放速度" ),
+                            0, 1, "測試播放速度" ),
           
           mPrevExtraButton( smallFont, 250, -65, "<" ), 
           mNextExtraButton( smallFont, 310, -65, ">" ), 
@@ -112,33 +112,33 @@ EditorAnimationPage::EditorAnimationPage()
           mPickingHeld( false ),
           mHeldID( -1 ),
           mClearHeldButton( smallFont, 280, -140, "X 手持物" ),
-          mPickSceneryButton( smallFont, 280, 180, "+ 背景物体" ),
+          mPickSceneryButton( smallFont, 280, 180, "+ 背景物體" ),
           mPickingScenery( false ),
           mSceneryID( -1 ),
-          mClearSceneryButton( smallFont, 280, 220, "X 背景物体" ),
-          mCopyButton( smallFont, -390, 230, "复制" ),
-          mCopyChainButton( smallFont, -390, 270, "复制子树" ),
+          mClearSceneryButton( smallFont, 280, 220, "X 背景物體" ),
+          mCopyButton( smallFont, -390, 230, "複製" ),
+          mCopyChainButton( smallFont, -390, 270, "複製子樹" ),
           mCopyChainRandButton( smallFont, -390, 310, 
-                                "复制子树 Rand 阶段" ),
-          mCopyWalkButton( smallFont, -290, 270, "复制 Walk" ),
-          mCopyAllButton( smallFont, -470, 230, "复制所有" ),
-          mCopyUpButton( smallFont, -500, 270, "复制 Up" ),
-          mPasteButton( smallFont, -330, 230, "粘贴" ),
+                                "複製子樹 Rand 階段" ),
+          mCopyWalkButton( smallFont, -290, 270, "複製 Walk" ),
+          mCopyAllButton( smallFont, -470, 230, "複製所有" ),
+          mCopyUpButton( smallFont, -500, 270, "複製 Up" ),
+          mPasteButton( smallFont, -330, 230, "粘貼" ),
           mClearButton( smallFont, -270, 230, "清除" ),
-          mNextSpriteOrSlotButton( smallFont, 280, -270, "下一图层" ),
-          mPrevSpriteOrSlotButton( smallFont, 100, -270, "上一图层" ),
-          mChildButton( smallFont, 380, -330, "子级" ),
-          mParentButton( smallFont, 380, -270, "父级" ),
+          mNextSpriteOrSlotButton( smallFont, 280, -270, "下一圖層" ),
+          mPrevSpriteOrSlotButton( smallFont, 100, -270, "上一圖層" ),
+          mChildButton( smallFont, 380, -330, "子級" ),
+          mParentButton( smallFont, 380, -270, "父級" ),
           mNextSoundButton( smallFont, -30, -160, ">" ),
           mPrevSoundButton( smallFont, -210, -160, "<" ),
-          mCopySoundAnimButton( smallFont, -85, -160, "复制" ),
-          mCopyAllSoundAnimButton( smallFont, -85, -160, "复制全部" ),
-          mPasteSoundAnimButton( smallFont, -155, -160, "粘贴" ),
-          mFullSoundCopyButton( smallFont, -320, -328, "复制选择动画所有声音" ),
-          mFullSoundPasteButton( smallFont, 130, -328, "粘贴所有声音" ),
+          mCopySoundAnimButton( smallFont, -85, -160, "複製" ),
+          mCopyAllSoundAnimButton( smallFont, -85, -160, "複製全部" ),
+          mPasteSoundAnimButton( smallFont, -155, -160, "粘貼" ),
+          mFullSoundCopyButton( smallFont, -320, -328, "複製選擇動畫所有聲音" ),
+          mFullSoundPasteButton( smallFont, 130, -328, "粘貼所有聲音" ),
           mSpeedMultField( smallFont, -500, -328, 4, false,
                            "速度 x", "0123456789." ),
-          mSpeedMultApplyButton( smallFont, -446, -328, "应用" ),
+          mSpeedMultApplyButton( smallFont, -446, -328, "應用" ),
           mCloneExtrasToOtherPeopleButton( 
               smallFont, 390, 310,
               "Clone Extras to All People" ),
@@ -387,12 +387,12 @@ EditorAnimationPage::EditorAnimationPage()
         mCheckboxes[i]->addActionListener( this );
         boxY -= 20;
         }
-    mCheckboxNames[0] = "停留闲置";
-    mCheckboxNames[1] = "拾取物体";
-    mCheckboxNames[2] = "改变位置";
+    mCheckboxNames[0] = "停留閒置";
+    mCheckboxNames[1] = "拾取物體";
+    mCheckboxNames[2] = "改變位置";
     mCheckboxNames[3] = "消耗食用";
-    mCheckboxNames[4] = "做长互动";
-    mCheckboxNames[5] = "额外附加";
+    mCheckboxNames[4] = "做長互動";
+    mCheckboxNames[5] = "額外附加";
 
     mCheckboxAnimTypes[0] = ground;
     mCheckboxAnimTypes[1] = held;
@@ -414,7 +414,7 @@ EditorAnimationPage::EditorAnimationPage()
     
     mSliders[0] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "X振动频率-X Osc" );
+                                   0, 8, "X振動頻率-X Osc" );
 
     mXOffsetSlider = new ValueSlider( smallFont, x - 182, 
                                       mSliders[0]->getPosition().y, 
@@ -431,7 +431,7 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[3] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "Y振动频率-Y Osc" );
+                                   0, 8, "Y振動頻率-Y Osc" );
 
     mYOffsetSlider = new ValueSlider( smallFont, x - 182, 
                                       mSliders[3]->getPosition().y, 
@@ -448,7 +448,7 @@ EditorAnimationPage::EditorAnimationPage()
     
     mSliders[6] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 12, "旋转-Rot" );
+                                   0, 12, "旋轉-Rot" );
     
     mReverseRotationCheckbox.setPosition( x - 115, boxY );
 
@@ -461,7 +461,7 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[8] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "Rock振动频率-Rock Osc" );
+                                   0, 8, "Rock振動頻率-Rock Osc" );
     mSliders[9] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
                                    0, 1, "Rock振幅Rock Amp" );
@@ -472,7 +472,7 @@ EditorAnimationPage::EditorAnimationPage()
 
     mSliders[11] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
-                                   0, 8, "闪烁速度-Fade Osc" );
+                                   0, 8, "閃爍速度-Fade Osc" );
     mSliders[12] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                    100, 20,
                                    0, 1, "淡入淡出-Fade Hard" );
@@ -489,17 +489,17 @@ EditorAnimationPage::EditorAnimationPage()
     
     mSliders[16] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, "动画播放时长-Duration Sec" );
+                                    0, 100, "動畫播放時長-Duration Sec" );
     mSliders[16]->forceDecimalDigits( 2 );
     
     mSliders[17] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, "冻结阶段时长Pause Sec" );
+                                    0, 100, "凍結階段時長Pause Sec" );
     mSliders[17]->forceDecimalDigits( 2 );
 
     mSliders[18] = new ValueSlider( smallFont, x, boxY -= space, 2,
                                     100, 20,
-                                    0, 100, "首次播放延迟-Start Pause Sec" );
+                                    0, 100, "首次播放延遲-Start Pause Sec" );
     mSliders[18]->forceDecimalDigits( 2 );
     
 
@@ -543,12 +543,12 @@ EditorAnimationPage::EditorAnimationPage()
     mOtherShoe = &( mClothingSet.frontShoe );
 
     addKeyClassDescription( &mKeyLegend, "R-Click/arrows", 
-                            "移动图层旋转中心" );
-    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "移动5/10像素" );
-    addKeyDescription( &mKeyLegend, 'f', "水平翻转" );
-    addKeyDescription( &mKeyLegend, 'h', "隐藏/显示UI" );
+                            "移動圖層旋轉中心" );
+    addKeyClassDescription( &mKeyLegend, "Ctr/Shft", "移動5/10像素" );
+    addKeyDescription( &mKeyLegend, 'f', "水平翻轉" );
+    addKeyDescription( &mKeyLegend, 'h', "隱藏/顯示UI" );
     
-    addKeyClassDescription( &mKeyLegendB, "R-Click", "复制动画" );
+    addKeyClassDescription( &mKeyLegendB, "R-Click", "複製動畫" );
 
 
     addComponent( &mCloneExtrasToOtherPeopleButton );
@@ -3236,18 +3236,18 @@ void EditorAnimationPage::drawUnderComponents( doublePair inViewCenter,
     if( !mHideUI && mReverseRotationCheckbox.isVisible() ) {
         pos = mReverseRotationCheckbox.getPosition();
         pos.x -= 10;
-        smallFont->drawString( "逆时针旋转", pos, alignRight );
+        smallFont->drawString( "逆時針旋轉", pos, alignRight );
         }
 
     if( !mHideUI && mRandomStartPhaseCheckbox.isVisible() ) {
         pos = mRandomStartPhaseCheckbox.getPosition();
         pos.x -= 10;
-        smallFont->drawString( "随机关键帧处开始动画", pos, alignRight );
+        smallFont->drawString( "隨機關鍵幀處開始動畫", pos, alignRight );
         }
     if( !mHideUI && mForceZeroStartCheckbox.isVisible() ) {
         pos = mForceZeroStartCheckbox.getPosition();
         pos.x -= 10;
-        smallFont->drawString( "按顺序播放动画", pos, alignRight );
+        smallFont->drawString( "按順序播放動畫", pos, alignRight );
         }
         
     

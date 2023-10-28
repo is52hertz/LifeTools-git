@@ -30,7 +30,7 @@ static double lastMouseY = 0;
 
 
 EditorSpriteTrimPage::EditorSpriteTrimPage()
-        : mImportEditorButton( mainFont, -310, 260, "Sprites - 图元" ),
+        : mImportEditorButton( mainFont, -310, 260, "Sprites - 圖元" ),
           mSaveButton( mainFont, 400, 64, "保存" ),
           mClearRectButton( mainFont, 400, -65, "X 截面" ),
           mFreehandSplitButton( mainFont, 400, 192, "自由分割" ),

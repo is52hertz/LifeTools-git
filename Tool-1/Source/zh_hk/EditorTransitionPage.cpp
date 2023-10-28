@@ -78,7 +78,7 @@ EditorTransitionPage::EditorTransitionPage()
         : mAutoDecayTimeField( smallFont, 
                                0,  -170, 6,
                                false,
-                               "发生转换秒数", "-0123456789", NULL ),
+                               "發生轉換秒數", "-0123456789", NULL ),
           mLastUseActorCheckbox( -330, 75, 2 ),
           mLastUseTargetCheckbox( 130, 75, 2 ),
           mReverseUseActorCheckbox( -330, -75, 2 ),
@@ -90,26 +90,26 @@ EditorTransitionPage::EditorTransitionPage()
           mDesiredMoveDistField( smallFont,
                                  240, 40 - NUM_MOVE_BUTTONS * 20 - 30, 4,
                                  false,
-                                 "移动距离", "0123456789", NULL ),
+                                 "移動距離", "0123456789", NULL ),
           mActorMinUseFractionField( smallFont, 
                                      -290,  115, 4,
                                      false,
-                                     "最小使用数量", "0123456789.", NULL ),
+                                     "最小使用數量", "0123456789.", NULL ),
           mTargetMinUseFractionField( smallFont, 
                                       90,  115, 4,
                                       false,
-                                      "最小使用数量", "0123456789.", NULL ),
+                                      "最小使用數量", "0123456789.", NULL ),
           mSaveTransitionButton( mainFont, -320, 0, "保存" ),
           mObjectPicker( &objectPickable, +410, 90 ),
           mObjectPickerAlt( &objectPickableAlt, -540, 0 ),
           mObjectEditorButton( mainFont, 410, 260, "Objects-物品" ),
-          mCategoryEditorButton( mainFont, -410, 260, "Categories-类别" ),
-          mProducedByNext( smallFont, 180, 260, "下页" ),
-          mProducedByPrev( smallFont, -180, 260, "上页" ),
-          mProducesNext( smallFont, 180, -260, "下页" ),
-          mProducesPrev( smallFont, -180, -260, "上页" ),
-          mDelButton( smallFont, +150, 0, "删除" ),
-          mDelConfirmButton( smallFont, +150, 40, "删除?" ),
+          mCategoryEditorButton( mainFont, -410, 260, "Categories-類別" ),
+          mProducedByNext( smallFont, 180, 260, "下頁" ),
+          mProducedByPrev( smallFont, -180, 260, "上頁" ),
+          mProducesNext( smallFont, 180, -260, "下頁" ),
+          mProducesPrev( smallFont, -180, -260, "上頁" ),
+          mDelButton( smallFont, +150, 0, "刪除" ),
+          mDelConfirmButton( smallFont, +150, 40, "刪除?" ),
           mSwapActorButton( "swapButton.tga", -200, 0 ),
           mSwapTargetButton( "swapButton.tga", 0, 0 ),
           mSwapTopButton( "swapButtonH.tga", -100, 120 ),
@@ -1233,7 +1233,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( "通用临近转换", 
+        smallFont->drawString( "通用臨近轉換", 
                                pos, alignCenter );
         }
     else if( mCurrentTransition.target != 0 &&
@@ -1247,7 +1247,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( "默认转换", 
+        smallFont->drawString( "默認轉換", 
                                pos, alignCenter );
         }
     else if( mCurrentTransition.target == 0 &&
@@ -1262,7 +1262,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( "食物转换", 
+        smallFont->drawString( "食物轉換", 
                                pos, alignCenter );
         
         }
@@ -1278,7 +1278,7 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
         
         setDrawColor( 1, 1, 1, 1 );
         
-        smallFont->drawString( "通用使用转换", 
+        smallFont->drawString( "通用使用轉換", 
                                pos, alignCenter );
         
         }
@@ -1303,12 +1303,12 @@ void EditorTransitionPage::draw( doublePair inViewCenter,
     if( mLastUseActorCheckbox.isVisible() ) {
         doublePair pos = mLastUseActorCheckbox.getPosition();
         pos.x -= checkboxSep;
-        smallFont->drawString( "最后一次使用", pos, alignRight );
+        smallFont->drawString( "最後一次使用", pos, alignRight );
         }
     if( mLastUseTargetCheckbox.isVisible() ) {
         doublePair pos = mLastUseTargetCheckbox.getPosition();
         pos.x += checkboxSep;
-        smallFont->drawString( "最后一次使用", pos, alignLeft );
+        smallFont->drawString( "最後一次使用", pos, alignLeft );
         }
 
     if( mReverseUseActorCheckbox.isVisible() ) {
