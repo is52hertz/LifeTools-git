@@ -134,3 +134,67 @@ jobs:
         name: EditOneLife[Tool-1]{zh_tw}
         path: Tool-1/Build.zh_tw/EditOneLife
 
+  build_zh_hk:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - name: dependencies
+      run: |
+        sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
+        sudo apt-get install build-essential
+        sudo apt-get install build-essential libgl1-mesa-dev
+        sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
+        sudo apt-get install libglfw3-dev libglfw3
+    - name: freetype
+      run: |
+        cd Tool-1/Build.zh_hk/freetype-2.13.2
+        cd builds/unix
+        chmod +x configure
+        ./configure
+        cd ../../
+        make
+        sudo make install
+    - name: Clone Git Repositories
+      run: |
+        cd Tool-1/Build.zh_hk
+        rm -rf OneLife/*
+        rm -rf minorGems/*
+        rm -rf OneLife
+        rm -rf minorGems
+        git clone https://github.com/skps2010/minorGems.git
+        git clone https://github.com/skps2010/OneLife.git
+        cp ../Source/zh_hk/* OneLife/gameSource/
+    - name: Build Tool-1{zh_hk} [workflowBuildOneEditor]
+      run: |
+        cd Tool-1/Build.zh_hk
+        cp OneLife/scripts/skps2010Scripts/skps2010Build.sh .
+        chmod +x skps2010Build.sh
+        ./skps2010Build.sh
+        cd OneLife
+        find . -type f -name '*.o' -exec rm {} +
+        find . -type f -name '*.dep' -exec rm {} +
+        cd ..
+        rm OneLife/gameSource/Makefile.minorGems_dependencies
+        cd minorGems
+        find . -type f -name '*.o' -exec rm {} +
+        find . -type f -name '*.dep' -exec rm {} +
+        cd ..
+        cd OneLife/gameSource
+        ./makeEditor.sh
+
+    - name: Copy EditOneLife
+      run: |
+        cp Tool-1/Build.zh_hk/OneLife/gameSource/EditOneLife Tool-1/Build.zh_hk
+
+    - name: Display Build Result
+      run: |
+        ls -l Tool-1/Build.zh_hk/OneLife/gameSource/EditOneLife
+    - name: Upload Build Result
+      uses: actions/upload-artifact@v2
+      with:
+        name: EditOneLife[Tool-1]{zh_hk}
+        path: Tool-1/Build.zh_hk/EditOneLife
