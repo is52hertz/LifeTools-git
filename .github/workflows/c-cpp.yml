@@ -55,8 +55,8 @@ jobs:
         rm -rf minorGems/*
         rm -rf OneLife
         rm -rf minorGems
-        ln -a ../OneLife OneLife
-        ln -a ../minorGems minorGems
+        ln -s ../OneLife OneLife
+        ln -s ../minorGems minorGems
         cp ../Source/Chinese/* OneLife/gameSource/
     - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
