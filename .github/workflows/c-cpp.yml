@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
     - name: dependencies
       run: |
         sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
