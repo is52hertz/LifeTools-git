@@ -18,7 +18,9 @@ jobs:
         sudo apt-get install libglfw3-dev libglfw3
     - name: freetype
       run: |
-        cd Tool-1/freetype-2.13.2
+        cd Tool-1
+        ls
+        cd freetype-2.13.2
         cd builds/unix
         chmod +x configure
         ./configure
@@ -46,8 +48,8 @@ jobs:
         rm -rf minorGems/*
         rm -rf OneLife
         rm -rf minorGems
-        ls -a ../OneLife OneLife
-        ls -a ../minorGems minorGems
+        ln -a ../OneLife OneLife
+        ln -a ../minorGems minorGems
         cp ../Source/Chinese/* OneLife/gameSource/
     - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
