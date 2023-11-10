@@ -18,6 +18,9 @@ jobs:
         sudo apt-get install libglfw3-dev libglfw3
     - name: freetype
       run: |
+        ls -a
+        echo "-------------"
+        ls
         cd Tool-1
         ls
         cd freetype-2.13.2
