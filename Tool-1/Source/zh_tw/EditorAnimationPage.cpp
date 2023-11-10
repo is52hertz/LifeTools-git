@@ -141,17 +141,17 @@ EditorAnimationPage::EditorAnimationPage()
           mSpeedMultApplyButton( smallFont, -446, -328, "應用" ),
           mCloneExtrasToOtherPeopleButton( 
               smallFont, 390, 310,
-              "Clone Extras to All People" ),
+              "複製 Extras 給所有人" ),
           mCloneExtrasToOtherPeopleButtonConfirm( 
               smallFont, 190, 310,
-              "Really?" ),
+              "真的?" ),
           mCopyExtrasButton( 
               smallFont, 560, 310,
-              "Copy Extras" ),
+              "複製 Extras" ),
           mClonedExtrasObjectID( -1 ),
           mPasteClonedExtrasButton( 
               smallFont, 190, 310,
-              "Paste Extras and Save" ) {
+              "粘貼 Extras 並保存" ) {
     
     
     for( int i=0; i<=extraB; i++ ) {
