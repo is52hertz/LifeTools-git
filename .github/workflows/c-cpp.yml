@@ -39,6 +39,9 @@ jobs:
         cd Tool-1
         git clone https://github.com/skps2010/minorGems.git
         git clone https://github.com/skps2010/OneLife.git
+        ls
+        cd Build
+        ls
   build_Chinese:
     runs-on: ubuntu-latest
     needs: intend
