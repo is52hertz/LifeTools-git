@@ -47,10 +47,6 @@ jobs:
     needs: intend
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
     - name: Clone Git Repositories
       run: |
         cd Tool-1
