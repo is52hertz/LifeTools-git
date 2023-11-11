@@ -31,6 +31,8 @@ static double addAmount = 0.25;
 
 extern double frameRateFactor;
 
+#include "message.h"
+
 #define NUM_CELL_ANIM 2
 static const char *cellAnimNames[ NUM_CELL_ANIM ] = { "Ground", "Moving" };
 static const AnimType cellAnimTypes[ NUM_CELL_ANIM ] = { ground, moving };

@@ -124,6 +124,13 @@ EditorCategoryPage::EditorCategoryPage()
 
     addKeyDescription( &mKeyLegendPattern, 'd', "重复项目到位" );
     addKeyDescription( &mKeyLegendPattern, 'D', "将项目复制到底部" );
+
+    mMakeUniformButton.setMouseOverTip( translate( "MakeUniformTip" ) );
+    mTransEditorButton.setMouseOverTip( translate( "TransEditorTip" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
     }
 
 

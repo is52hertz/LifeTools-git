@@ -38,6 +38,7 @@ extern EditorObjectPage *objectPage;
 // label distance from checkboxes
 static int checkboxSep = 12;
 
+#include "message.h"
 
 EditorImportPage::EditorImportPage()
         : mImportButton( smallFont, +170, 280, "图元导入" ),

@@ -26,6 +26,7 @@ static SpritePickable spritePickable;
 static double lastMouseX = 0;
 static double lastMouseY = 0;
 
+#include "message.h"
 
 
 

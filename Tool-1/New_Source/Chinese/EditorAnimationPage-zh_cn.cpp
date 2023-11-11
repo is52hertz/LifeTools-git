@@ -38,6 +38,7 @@ extern double defaultAge;
 
 static float lastMouseX, lastMouseY;
 
+#include "message.h"
 
 
 EditorAnimationPage::EditorAnimationPage()
@@ -566,6 +567,25 @@ EditorAnimationPage::EditorAnimationPage()
     addComponent( &mPasteClonedExtrasButton );
     mPasteClonedExtrasButton.addActionListener( this );
     mPasteClonedExtrasButton.setVisible( false );
+
+    mPickSlotDemoButton.setMouseOverTip( translate( "" ) );
+    mClearSlotDemoButton.setMouseOverTip( translate( "" ) );
+    mPickClothingButton.setMouseOverTip( translate( "" ) );
+    mClearClothingButto.setMouseOverTip( translate( "" ) );
+    mPickHeldButton.setMouseOverTip( translate( "" ) );
+    addKeyClassDescription.setMouseOverTip( translate( "addKeyClassDescription" ) );
+    /*
+    mSliders[0].setMouseOverTip( translate( "mSliders[0]" ) );
+    mCheckboxNames[0].setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    .setMouseOverTip( translate( "" ) );
+    */
+
     }
 
 

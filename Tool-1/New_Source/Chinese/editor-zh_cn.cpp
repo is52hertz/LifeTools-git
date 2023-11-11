@@ -89,7 +89,7 @@ int loadingFileHandle = -1;
 int loadingFileStepCount = 0;
 double loadingStartTime;
 
-
+#include "message.h"
 
 
 EditorImportPage *importPage;

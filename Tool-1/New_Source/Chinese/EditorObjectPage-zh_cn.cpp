@@ -55,6 +55,7 @@ double defaultAge = 20;
 
 static float lastMouseX, lastMouseY;
 
+#include "message.h"
 
 
 EditorObjectPage::EditorObjectPage()
