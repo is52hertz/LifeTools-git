@@ -1,11 +1,11 @@
-name: Tool-1-future
+name: Tool-1
 on:
   push:
     branches:
-      - none
+      - main
 
 jobs:
-  intend:
+  build_Chinese:
     runs-on: ubuntu-latest
     
     steps:
@@ -22,41 +22,22 @@ jobs:
         sudo apt-get install libglfw3-dev libglfw3
     - name: freetype
       run: |
-        ls -a
-        echo "-------------"
-        ls
-        cd Tool-1
-        ls
-        cd freetype-2.13.2
+        cd Tool-1/freetype-2.13.2
         cd builds/unix
         chmod +x configure
         ./configure
         cd ../../
         make
         sudo make install
-    - name: CGR
-      run: |
-        cd Tool-1
-        git clone https://github.com/skps2010/minorGems.git
-        git clone https://github.com/skps2010/OneLife.git
-        ls
-        cd Build
-        ls
-  build_Chinese:
-    runs-on: ubuntu-latest
-    needs: intend
-
-    steps:
     - name: Clone Git Repositories
       run: |
-        cd Tool-1
-        ls
-        cd Build
-        ls
+        cd Tool-1/Build
         rm -rf OneLife/*
         rm -rf minorGems/*
-        cp -rf ../OneLife/* OneLife/
-        cp -rf ../minorGems/* minorGems/
+        rm -rf OneLife
+        rm -rf minorGems
+        git clone https://github.com/skps2010/minorGems.git
+        git clone https://github.com/skps2010/OneLife.git
         cp ../Source/Chinese/* OneLife/gameSource/
     - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
@@ -90,13 +71,28 @@ jobs:
 
   build_zh_tw:
     runs-on: ubuntu-latest
-    needs: intend
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
         fetch-depth: 1
+    - name: dependencies
+      run: |
+        sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
+        sudo apt-get install build-essential
+        sudo apt-get install build-essential libgl1-mesa-dev
+        sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
+        sudo apt-get install libglfw3-dev libglfw3
+    - name: freetype
+      run: |
+        cd Tool-1/freetype-2.13.2
+        cd builds/unix
+        chmod +x configure
+        ./configure
+        cd ../../
+        make
+        sudo make install
     - name: Clone Git Repositories
       run: |
         cd Tool-1/Build.zh_tw
@@ -124,11 +120,9 @@ jobs:
         cd ..
         cd OneLife/gameSource
         ./makeEditor.sh
-
     - name: Copy EditOneLife
       run: |
         cp Tool-1/Build.zh_tw/OneLife/gameSource/EditOneLife Tool-1/Build.zh_tw
-
     - name: Display Build Result
       run: |
         ls -l Tool-1/Build.zh_tw/OneLife/gameSource/EditOneLife
@@ -140,13 +134,28 @@ jobs:
 
   build_zh_hk:
     runs-on: ubuntu-latest
-    needs: intend
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
         fetch-depth: 1
+    - name: dependencies
+      run: |
+        sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
+        sudo apt-get install build-essential
+        sudo apt-get install build-essential libgl1-mesa-dev
+        sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
+        sudo apt-get install libglfw3-dev libglfw3
+    - name: freetype
+      run: |
+        cd Tool-1/freetype-2.13.2
+        cd builds/unix
+        chmod +x configure
+        ./configure
+        cd ../../
+        make
+        sudo make install
     - name: Clone Git Repositories
       run: |
         cd Tool-1/Build.zh_hk
@@ -174,11 +183,9 @@ jobs:
         cd ..
         cd OneLife/gameSource
         ./makeEditor.sh
-
     - name: Copy EditOneLife
       run: |
         cp Tool-1/Build.zh_hk/OneLife/gameSource/EditOneLife Tool-1/Build.zh_hk
-
     - name: Display Build Result
       run: |
         ls -l Tool-1/Build.zh_hk/OneLife/gameSource/EditOneLife
