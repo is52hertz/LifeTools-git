@@ -568,12 +568,11 @@ EditorAnimationPage::EditorAnimationPage()
     mPasteClonedExtrasButton.addActionListener( this );
     mPasteClonedExtrasButton.setVisible( false );
 
-    mPickSlotDemoButton.setMouseOverTip( translate( "" ) );
-    mClearSlotDemoButton.setMouseOverTip( translate( "" ) );
-    mPickClothingButton.setMouseOverTip( translate( "" ) );
-    mClearClothingButto.setMouseOverTip( translate( "" ) );
-    mPickHeldButton.setMouseOverTip( translate( "" ) );
-    addKeyClassDescription.setMouseOverTip( translate( "addKeyClassDescription" ) );
+    mPickSlotDemoButton.setMouseOverTip( translate( "a" ) );
+    mClearSlotDemoButton.setMouseOverTip( translate( "b" ) );
+    mPickClothingButton.setMouseOverTip( translate( "c" ) );
+    mClearClothingButton.setMouseOverTip( translate( "d" ) );
+    mPickHeldButton.setMouseOverTip( translate( "e" ) );
     /*
     mSliders[0].setMouseOverTip( translate( "mSliders[0]" ) );
     mCheckboxNames[0].setMouseOverTip( translate( "" ) );

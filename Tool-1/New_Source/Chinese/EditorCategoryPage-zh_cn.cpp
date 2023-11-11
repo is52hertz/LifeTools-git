@@ -127,10 +127,12 @@ EditorCategoryPage::EditorCategoryPage()
 
     mMakeUniformButton.setMouseOverTip( translate( "MakeUniformTip" ) );
     mTransEditorButton.setMouseOverTip( translate( "TransEditorTip" ) );
+    /*
     .setMouseOverTip( translate( "" ) );
     .setMouseOverTip( translate( "" ) );
     .setMouseOverTip( translate( "" ) );
     .setMouseOverTip( translate( "" ) );
+    */
     }
 
 
