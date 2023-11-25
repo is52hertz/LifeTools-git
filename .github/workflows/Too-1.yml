@@ -15,11 +15,8 @@ jobs:
         fetch-depth: 1
     - name: dependencies
       run: |
-        sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
-        sudo apt-get install build-essential
-        sudo apt-get install build-essential libgl1-mesa-dev
-        sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
-        sudo apt-get install libglfw3-dev libglfw3
+        sudo apt-get update
+        sudo apt-get install git g++ make imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev g++-mingw-w64-i686-win32 libfreetype-dev
     - name: freetype
       run: |
         cd Tool-1/freetype-2.13.2
@@ -79,11 +76,8 @@ jobs:
         fetch-depth: 1
     - name: dependencies
       run: |
-        sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
-        sudo apt-get install build-essential
-        sudo apt-get install build-essential libgl1-mesa-dev
-        sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
-        sudo apt-get install libglfw3-dev libglfw3
+        sudo apt-get update
+        sudo apt-get install git g++ make imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev g++-mingw-w64-i686-win32 libfreetype-dev
     - name: freetype
       run: |
         cd Tool-1/freetype-2.13.2
@@ -142,11 +136,8 @@ jobs:
         fetch-depth: 1
     - name: dependencies
       run: |
-        sudo apt-get -y install git g++ imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev
-        sudo apt-get install build-essential
-        sudo apt-get install build-essential libgl1-mesa-dev
-        sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
-        sudo apt-get install libglfw3-dev libglfw3
+        sudo apt-get update
+        sudo apt-get install git g++ make imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev g++-mingw-w64-i686-win32 libfreetype-dev
     - name: freetype
       run: |
         cd Tool-1/freetype-2.13.2
