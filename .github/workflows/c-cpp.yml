@@ -1,8 +1,6 @@
 name: Tool-1-future
 on:
-  push:
-    branches:
-      - none
+  workflow_dispatch:
 
 jobs:
   intend:
