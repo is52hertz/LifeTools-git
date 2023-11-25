@@ -14,21 +14,7 @@ jobs:
     - name: dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install git g++ make imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev g++-mingw-w64-i686-win32 libfreetype-dev
-    - name: freetype
-      run: |
-        ls -a
-        echo "-------------"
-        ls
-        cd Tool-1
-        ls
-        cd freetype-2.13.2
-        cd builds/unix
-        chmod +x configure
-        ./configure
-        cd ../../
-        make
-        sudo make install
+        sudo apt-get install git g++ make imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev libfreetype-dev
     - name: CGR
       run: |
         cd Tool-1
