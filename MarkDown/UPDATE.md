@@ -12,6 +12,15 @@
 ## **`stable`**
 *none*
 ## `rc`
+### `rc20231125a`
+> Update
+> [ + ] Chinese Edition and more.
+> [ + ] Fix "A small portion of the code was restored. (next pre-release fix)" .
+> [ + ] Fix the lssues #2 .
+> [ − ] No Editor-World .
+> 
+> Issues already known
+> - Editor-World is deprecated.
 ### `rc2023924a`
 > Update (Versus the last in-built version):  
 > [ + ] Externalize most of the text (built into the code) to `English.txt` .  

@@ -17,10 +17,10 @@ ___
 - Fixed `OneEditor` legacy and existing issues, [View Known Issues](https://github.com/is52hertz/LifeTools-git/issues).
 
 ### Changelog and download resources
-**Latest version**: [`rc2023924a`](https://github.com/is52hertz/LifeTools-git/releases/tag/rc2023924a)  
+**Latest version**: [`rc20231125a`](https://github.com/is52hertz/LifeTools-git/releases/tag/rc20231125a)  
 *Update*:  
 ```
-https://github.com/is52hertz/LifeTools-git/releases/tag/rc2023924a
+https://github.com/is52hertz/LifeTools-git/releases/tag/rc20231125a
 ```
 *See more*:  
 - [Update Log](https://github.com/is52hertz/LifeTools-git/blob/main/MarkDown/UPDATE.md)  

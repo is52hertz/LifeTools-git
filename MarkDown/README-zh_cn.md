@@ -5,25 +5,40 @@
 ___
 # 概要
 ## Tool - 1
-> 更好的`OneEditor`。
+> 更好的 `OneEditor` 。
 
 ### 功能
-- 使`OneEditor`显示其他语言（更多文字）。
+- 使 `OneEditor` 显示其他语言（更多文字）。
 
 ### 未来
-- 将来你可以通过`python`程序选择自己国家的语言，然后自动执行，但现在你需要自己动手(这将在下一个正式版本中实现)。  
-- 新增`Setting`页面，用于编辑`OneLife`的设置(`.ini`)。
-- 修复`OneEditor`历史遗留问题与现存问题，[查看已知问题](https://github.com/is52hertz/LifeTools-git/issues)。
+- 将来你可以通过 `python` 程序选择自己国家的语言，然后自动执行，但现在你需要自己动手(这将在下一个正式版本中实现)。  
+- 新增 `Setting` 页面，用于编辑 `OneLife` 的设置(`.ini`)。
+- 修复 `OneEditor` 历史遗留问题与现存问题，[查看已知问题](https://github.com/is52hertz/LifeTools-git/issues)。
 
 ### 更新日志与下载资源
-**最新版本**：[`rc2023924a`](https://github.com/is52hertz/LifeTools-git/releases/tag/rc2023924a)  
+**最新版本**：[rc20231125a`](https://github.com/is52hertz/LifeTools-git/releases/tag/rc20231125a)  
 *更新*：  
 ```
-https://github.com/is52hertz/LifeTools-git/releases/tag/rc2023924a
+https://github.com/is52hertz/LifeTools-git/releases/tag/rc20231125a
 ```
 *查看更多*：  
 - [更新日志](https://github.com/is52hertz/LifeTools-git/blob/main/MarkDown/UPDATE-zh_cn.md)  
 - [下载资源](https://github.com/is52hertz/LifeTools-git/releases)  
+
+___
+# 概要
+## Tool - 2
+> 中文 `ohol_nodejs_stats`。
+
+___
+# 概要
+## Tool - 3
+> 更好的 `OneWeb`.
+
+___
+# 概要
+## Tool - 4
+> 更好的 `OneShell`。
 
 ___
 # 协议
