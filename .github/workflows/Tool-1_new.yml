@@ -1,0 +1,48 @@
+name: Tool-1_new
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_Chinese_new_Windows:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - name: dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install git g++ make imagemagick xclip libsdl1.2-dev libglu1-mesa-dev libgl1-mesa-dev g++-mingw-w64-i686-win32 libfreetype-dev
+    - name: Clone Git Repositories
+      run: |
+        cd Tool-1/Build-New
+        rm -rf OneLife/*
+        rm -rf minorGems/*
+        rm -rf OneLife
+        rm -rf minorGems
+        git clone https://github.com/skps2010/minorGems.git
+        git clone https://github.com/skps2010/OneLife.git
+        cp -rf ../Source_new/Chinese/* OneLife/gameSource/
+        cp -f Makefile.MinGWCross minorGems/game/platforms/SDL/
+    - name: Build Tool-1 [workflowBuildOneEditor]
+      run: |
+        cd Tool-1/Build-New/OneLife
+        chmod +x configure
+        ./configure 5
+        cd gameSource
+        ./makeEditor-zh_cn.sh
+    - name: Copy EditOneLife
+      run: |
+        cp Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn Tool-1/Build-New/
+    - name: Display Build Result
+      run: |
+        ls -l Tool-1/Build/OneLife/gameSource/OneEditor-zh_cn
+    - name: Upload Build Result
+      uses: actions/upload-artifact@v2
+      with:
+        name: OneEditor_Windows[Tool-1]{Chinese}
+        path: Tool-1/Build/OneEditor-zh_cn
