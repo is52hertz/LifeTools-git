@@ -38,6 +38,7 @@ jobs:
         cd gameSource
         chmod +x makeEditor-zh_cn.sh
         ./makeEditor-zh_cn.sh
+        ls -a
     - name: Copy EditOneLife
       run: |
         cp Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn Tool-1/Build-New/
