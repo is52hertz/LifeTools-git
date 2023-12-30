@@ -94,7 +94,7 @@ int loadingFileHandle = -1;
 int loadingFileStepCount = 0;
 double loadingStartTime;
 
-#include "message.h"
+
 
 
 EditorImportPage *importPage;
@@ -193,12 +193,12 @@ char isNonIntegerScalingAllowed() {
 
 
 const char *getWindowTitle() {
-    return "编辑器 - OneLife";
+    return "EDITOR - OneLife";
     }
 
 
 const char *getAppName() {
-    return "编辑OneLife";
+    return "EditOneLife";
     }
 
 
@@ -209,13 +209,13 @@ int getAppVersion() {
 
 const char *getLinuxAppName() {
     // no dir-name conflict here because we're using all caps for app name
-    return "编辑OneLifeApp";
+    return "EditOneLifeApp";
     }
 
 
 
 const char *getFontTGAFileName() {
-    return "font_32_32.tga";
+    return "font_32_64.tga";
     }
 
 
@@ -472,8 +472,8 @@ void initFrameDrawer( int inWidth, int inHeight, int inTargetFrameRate,
         if( readVersionNumber != versionNumber ) {
             AppLog::printOutNextMessage();
             AppLog::warningF( 
-                "警告：dataVersionNumber.txt中的版本号为 %d "
-                "但游戏版本是 %d...",
+                "WARNING:  version number in playback file is %d "
+                "but game version is %d...",
                 readVersionNumber, versionNumber );
             }
         }
@@ -1138,10 +1138,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "SPRITE - 图元##(重建缓存)" );
+                                "SPRITES##(REBUILDING CACHE)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "SPRITE - 图元" );
+                            loadingPage->setCurrentPhase( "SPRITES" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1179,10 +1179,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "ANIMATION - 动画##(重建缓存)" );
+                                "ANIMATION##(REBUILDING CACHE)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "ANIMATION - 动画" );
+                            loadingPage->setCurrentPhase( "ANIMATION" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1221,10 +1221,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "OBJECT - 物品##(重建缓存)" );
+                                "OBJECTS##(REBUILDING CACHE)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "OBJECT - 物品" );
+                            loadingPage->setCurrentPhase( "OBJECTS" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1295,10 +1295,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "CATEGORIES - 类别##(重建缓存)" );
+                                "CATEGORIES##(REBUILDING CACHE)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "CATEGORIES - 类别" );
+                            loadingPage->setCurrentPhase( "CATEGORIES" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
@@ -1339,10 +1339,10 @@ void drawFrame( char inUpdate ) {
                         
                         if( rebuilding ) {
                             loadingPage->setCurrentPhase( 
-                                "TRANSITIONS - 转换##(重建缓存)" );
+                                "TRANSITIONS##(REBUILDING CACHE)" );
                             }
                         else {
-                            loadingPage->setCurrentPhase( "TRANSITIONS - 转换" );
+                            loadingPage->setCurrentPhase( "TRANSITIONS" );
                             }
                         loadingPage->setCurrentProgress( 0 );
                         
