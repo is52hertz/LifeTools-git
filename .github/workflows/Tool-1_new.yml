@@ -34,6 +34,7 @@ jobs:
         chmod +x configure
         ./configure 5
         cd gameSource
+        chmod +x makeEditor-zh_cn.sh
         ./makeEditor-zh_cn.sh
     - name: Copy EditOneLife
       run: |
