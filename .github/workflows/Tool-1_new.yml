@@ -41,12 +41,12 @@ jobs:
         ls -a
     - name: Copy EditOneLife
       run: |
-        cp Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn Tool-1/Build-New/
+        cp Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn.exe Tool-1/Build-New/
     - name: Display Build Result
       run: |
-        ls -l Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn
+        ls -l Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn.exe
     - name: Upload Build Result
       uses: actions/upload-artifact@v2
       with:
         name: OneEditor_Windows[Tool-1]{Chinese}
-        path: Tool-1/Build-New/OneEditor-zh_cn
+        path: Tool-1/Build-New/OneEditor-zh_cn.exe
