@@ -28,6 +28,8 @@ jobs:
         git clone https://github.com/skps2010/OneLife.git
         cp -rf ../Source_New/Chinese/* OneLife/gameSource/
         cp -f Makefile.MinGWCross minorGems/game/platforms/SDL/
+        chmod +x make_Windows.sh
+        ./make_Windows.sh
     - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
         cd Tool-1/Build-New/OneLife
