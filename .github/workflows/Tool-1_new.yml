@@ -26,7 +26,7 @@ jobs:
         rm -rf minorGems
         git clone https://github.com/skps2010/minorGems.git
         git clone https://github.com/skps2010/OneLife.git
-        cp -rf ../Source_new/Chinese/* OneLife/gameSource/
+        cp -rf ../Source-New/Chinese/* OneLife/gameSource/
         cp -f Makefile.MinGWCross minorGems/game/platforms/SDL/
     - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
@@ -40,9 +40,9 @@ jobs:
         cp Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn Tool-1/Build-New/
     - name: Display Build Result
       run: |
-        ls -l Tool-1/Build/OneLife/gameSource/OneEditor-zh_cn
+        ls -l Tool-1/Build-New/OneLife/gameSource/OneEditor-zh_cn
     - name: Upload Build Result
       uses: actions/upload-artifact@v2
       with:
         name: OneEditor_Windows[Tool-1]{Chinese}
-        path: Tool-1/Build/OneEditor-zh_cn
+        path: Tool-1/Build-New/OneEditor-zh_cn
