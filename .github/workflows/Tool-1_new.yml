@@ -26,7 +26,7 @@ jobs:
         rm -rf minorGems
         git clone https://github.com/skps2010/minorGems.git
         git clone https://github.com/skps2010/OneLife.git
-        cp -rf ../Source-New/Chinese/* OneLife/gameSource/
+        cp -rf ../Source_New/Chinese/* OneLife/gameSource/
         cp -f Makefile.MinGWCross minorGems/game/platforms/SDL/
     - name: Build Tool-1 [workflowBuildOneEditor]
       run: |
