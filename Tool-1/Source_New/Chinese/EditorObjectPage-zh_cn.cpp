@@ -63,6 +63,7 @@ EditorObjectPage::EditorObjectPage()
                              -50,  -260, 18,
                              false,
                              "说明", NULL, NULL ),
+          unicodeWide = 10;
           mBiomeField( smallFont, -55, -220, 8, false, "生物群落",
                        "0123456789,", NULL ),
           mMapChanceField( smallFont, 
