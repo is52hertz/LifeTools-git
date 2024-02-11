@@ -724,6 +724,8 @@ static AnimationRecord *createRecordForObject( int inObjectID,
         zeroRecord( &( r->slotAnim[j] ) );
         }
 
+    r->authorTag = NULL;
+
     return r;
     }
 

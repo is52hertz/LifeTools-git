@@ -174,7 +174,7 @@ EditorObjectPage::EditorObjectPage()
           mNumUsesField( smallFont, 
                          258,  110, 2,
                          false,
-                         "# 耐久", "0123456789", NULL ),
+                         "#耐久", "0123456789", NULL ),
           mUseChanceField( smallFont, 
                            300,  110, 4,
                            false,
