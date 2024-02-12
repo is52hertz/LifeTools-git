@@ -64,6 +64,7 @@ emotion.cpp \
 exporter.cpp \
 EditorExportPage-zh_cn.cpp \
 importer.cpp \
+settingsToggle.cpp \
 
 
 
